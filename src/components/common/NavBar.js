@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import {
   Collapse,
   Navbar,
@@ -13,12 +14,27 @@ import {
   DropdownItem,
 } from 'reactstrap';
 
+const Wrapper = styled.div`
+	@media all and (max-width:767px) {
+    	margin-top: 0%;
+		margin-bottom: 1%;  
+    }
+    @media all and (min-width:768px) and (max-width:1080px) {
+        margin-top: 1.8%;
+		margin-bottom: 1%;
+    }
+    @media all and (min-width:1081px) {
+        margin-top: 2.5%;
+		margin-bottom: 1%;
+    }
+`;
+
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div>
+    <Wrapper>
       <Navbar color="light" light expand="md">
         <NavbarBrand href="/">파킹랏</NavbarBrand>
         <NavbarToggler onClick={toggle} />
@@ -44,7 +60,7 @@ const NavBar = () => {
           </Nav>
         </Collapse>
       </Navbar>
-    </div>
+    </Wrapper>
   );
 };
 
