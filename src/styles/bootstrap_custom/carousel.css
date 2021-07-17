@@ -3,5 +3,6 @@
 }
 
 .carousel-item img {
+    border-radius: 3%;
 	width: 100%;
 }
