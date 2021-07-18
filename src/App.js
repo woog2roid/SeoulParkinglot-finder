@@ -25,7 +25,7 @@ const App = () => {
     <Wrapper>
       <Switch>
 		<Route path="/seoul-parking-lot-finder/" component={Main} exact={true}/>
-        <Route path="/seoul-parking-lot-finder/about" component={About} />
+        <Route path="/seoul-parking-lot-finder/about/" component={About} />
         <Route component={NotFound} />
       </Switch>
     </Wrapper>

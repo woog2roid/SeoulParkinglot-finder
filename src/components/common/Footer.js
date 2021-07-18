@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const FooterWrapper = styled.div`
+const Wrapper = styled.div`
     width: 100%;
 	font-weight: light;
 `;
@@ -21,11 +21,11 @@ const Profile = styled.div`
 
 const Footer = () => {
     return (
-        <FooterWrapper>
+        <Wrapper>
             <Profile>
                 © 2021 woog2roid. All rights reserved.
             </Profile>
-        </FooterWrapper>
+        </Wrapper>
     );
 };
 export default Footer;
