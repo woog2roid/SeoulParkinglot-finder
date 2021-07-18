@@ -36,7 +36,7 @@ const NavBar = () => {
   return (
     <Wrapper>
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">파킹랏</NavbarBrand>
+        <NavbarBrand href="/seoul-parking-lot-finder">파킹랏</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>

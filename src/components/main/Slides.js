@@ -6,15 +6,19 @@ import {
   CarouselIndicators,
 } from 'reactstrap';
 import '../../styles/bootstrap_custom/carousel.css';
+import { Link } from 'react-router-dom';
 
 const items = [
   {
     src: process.env.PUBLIC_URL + "/images/carousel/1.png",
 	alt: "img1",
+	type: "div",
   },
   {
     src: process.env.PUBLIC_URL + "/images/carousel/2.png",
 	alt: "img2",
+	type: "a",
+	href: "https://github.com/woog2roid",
   },
 ];
 
@@ -38,17 +42,36 @@ const Slides = (props) => {
     if (animating) return;
     setActiveIndex(newIndex);
   }
-
+  
   const slides = items.map((item) => {
-    return (
-      <CarouselItem
-        onExiting={() => setAnimating(true)}
-        onExited={() => setAnimating(false)}
-        key={item.src}
-      >
-        <img src={item.src} alt={item.alt} />
-      </CarouselItem>
-    );
+	if(item.type === "link") {
+		return(
+			<CarouselItem
+    		    onExiting={() => setAnimating(true)}
+        		onExited={() => setAnimating(false)}
+        		key={item.src}>
+			  <Link to={item.href}><img src={item.src} alt={item.alt} /></Link>	
+      		</CarouselItem>
+		);
+	} else if(item.type === "a") {
+		return(
+			<CarouselItem
+    		    onExiting={() => setAnimating(true)}
+        		onExited={() => setAnimating(false)}
+        		key={item.src}>
+				<a href={item.href} target='_blank' rel="noreferrer"><img src={item.src} alt={item.alt} /></a>	
+      		</CarouselItem>
+		);
+    } else if(item.type === "div") {
+		return(	
+			<CarouselItem
+    		    onExiting={() => setAnimating(true)}
+        		onExited={() => setAnimating(false)}
+        		key={item.src}>
+				<img src={item.src} alt={item.alt} />	
+      		</CarouselItem>
+		);
+	}  
   });
 
   return (
