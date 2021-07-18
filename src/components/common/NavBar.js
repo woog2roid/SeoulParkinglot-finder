@@ -16,15 +16,12 @@ import {
 
 const Wrapper = styled.div`
 	@media all and (max-width:767px) {
-    	margin-top: 0%;
 		margin-bottom: 1%;  
     }
     @media all and (min-width:768px) and (max-width:1080px) {
-        margin-top: 1.8%;
 		margin-bottom: 1%;
     }
     @media all and (min-width:1081px) {
-        margin-top: 2.5%;
 		margin-bottom: 1%;
     }
 `;
