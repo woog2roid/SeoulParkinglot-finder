@@ -41,10 +41,7 @@ const NavBar = () => {
               <NavLink href="/components/">주차장 찾아보기</NavLink>
             </NavItem>
 			<NavItem>
-              <NavLink href="/about/">서비스 소개</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/about/">개발자 소개</NavLink>
+              <NavLink href="/seoul-parking-lot-finder/about/">서비스 소개</NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>

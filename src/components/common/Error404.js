@@ -2,17 +2,12 @@ import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from 'reactstrap';
+import { WrapperUtil } from '../../styles/utils/FixContentsToCenter';
 
-const Wrapper = styled.div`
-	text-align: center;
-	position: absolute;
+const Wrapper = styled(WrapperUtil)`
 	height: 20%;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin: auto;
-`;
+`
+
 const Title = styled.div`
 	@media all and (max-width:767px) {
     	font-size: 25px;  
