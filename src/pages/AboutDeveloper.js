@@ -1,15 +1,13 @@
 import React from 'react';
 import NavBar from '../components/common/NavBar';
 import Footer from '../components/common/Footer';
-import Slides from '../components/main/Slides';
 import { Wrapper, ContentsWrapper, FooterWrapper } from '../styles/utils/CommonComponentsLayout';
 
-const Main = () => {
+const AboutDeveloper = () => {
     return (
         <Wrapper>
 			<ContentsWrapper>
 				<NavBar />
-				<Slides />
 			</ContentsWrapper>
 			<FooterWrapper>
 				<Footer />
@@ -18,4 +16,4 @@ const Main = () => {
     );
 };
 
-export default Main;
+export default AboutDeveloper;

@@ -1,9 +1,9 @@
 import React from 'react';
 import NavBar from '../components/common/NavBar';
 import Footer from '../components/common/Footer';
-import { Wrapper, ContentsWrapper, FooterWrapper } from '../styles/utils/FooterPosition';
+import { Wrapper, ContentsWrapper, FooterWrapper } from '../styles/utils/CommonComponentsLayout';
 
-const About = () => {
+const AboutService = () => {
     return (
         <Wrapper>
 			<ContentsWrapper>
@@ -16,4 +16,4 @@ const About = () => {
     );
 };
 
-export default About;
+export default AboutService;
