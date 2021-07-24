@@ -15,6 +15,7 @@ import {
 } from 'reactstrap';
 
 const Wrapper = styled.div`
+	position: relative;
 	@media all and (max-width:767px) {
 		margin-bottom: 1%;  
     }
