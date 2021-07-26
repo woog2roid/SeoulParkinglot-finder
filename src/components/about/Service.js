@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { WrapperUtil } from '../../styles/utils/FixContentsToCenter';
 
 const Wrapper = styled(WrapperUtil)`
-	height: 40%;
+	height: 28%;
 	text-align: left;
 	@media all and (max-width:767px) {
     	width: 85%;
