@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { Button } from 'reactstrap';
 
 const Wrapper = styled.div`
+`;
+const ButtonWrapper = styled.div`
 	width: 100%;
 	display: inline-block;
 	text-align: center;
@@ -23,7 +25,7 @@ const CircleButton = styled(Button)`
         width: 150px;
 		height: 150px;
 		line-height: 150px;
-		font-size: 15px;
+		font-size: 13px;
 		& + & {
 			margin-left: 20px;
 		}
@@ -32,7 +34,7 @@ const CircleButton = styled(Button)`
         width: 200px;
 		height: 200px;
 		line-height: 200px;    
-		font-size:23px;
+		font-size:18px;
 		& + & {
 			margin-left: 100px;
 		}
@@ -41,7 +43,7 @@ const CircleButton = styled(Button)`
         width: 250px;
 		height: 250px;
 		line-height: 250px;
-		font-size: 30px;
+		font-size: 25px;
 		& + & {
 			margin-left: 200px;
 		}
@@ -57,20 +59,22 @@ const SearchMethod = () => {
 		}, [history]
 	);
 	
-	const openConditionalSearch = useCallback(
+	const openAdvacnedSearch = useCallback(
 		e => {
-			history.push('/seoul-parking-lot-finder/search/option')
-		}
-	)
+			history.push('/seoul-parking-lot-finder/search/advanced')
+		}, [history]
+	);
 	
     return (
 		<Wrapper>
-			<CircleButton color="primary" onClick={openQuickSearch}>
-					신속한 주변찾기
-			</CircleButton>
-			<CircleButton color="primary" onClick={openConditionalSearch}>
-					꼼꼼한 조건검색
-			</CircleButton>
+			<ButtonWrapper>
+				<CircleButton outline color="primary" onClick={openQuickSearch}>
+						신속한 주변찾기
+				</CircleButton>
+				<CircleButton outline color="primary" onClick={openAdvancedSearch}>
+						꼼꼼한 고급검색
+				</CircleButton>
+			</ButtonWrapper>
 		</Wrapper>
     );
 };
