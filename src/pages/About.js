@@ -2,7 +2,7 @@ import React from 'react';
 import NavBar from '../components/common/NavBar';
 import Footer from '../components/common/Footer';
 import Service from '../components/about/Service';
-import { Wrapper, ContentsWrapper, FooterWrapper } from '../styles/utils/CommonComponentsLayout';
+import { Wrapper, ContentsWrapper, FooterWrapper } from '../global_styles/utils/CommonComponentsLayout';
 
 const AboutService = () => {
     return (

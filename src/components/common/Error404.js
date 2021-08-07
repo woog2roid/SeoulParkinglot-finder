@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from 'reactstrap';
-import { WrapperUtil } from '../../styles/utils/FixContentsToCenter';
+import { WrapperUtil } from '../../global_styles/utils/FixContentsToCenter';
 
 const Wrapper = styled(WrapperUtil)`
 	height: 20%;

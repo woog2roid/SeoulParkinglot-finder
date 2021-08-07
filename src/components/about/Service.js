@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { WrapperUtil } from '../../styles/utils/FixContentsToCenter';
+import { WrapperUtil } from '../../global_styles/utils/FixContentsToCenter';
 
 const Wrapper = styled(WrapperUtil)`
 	height: 28%;

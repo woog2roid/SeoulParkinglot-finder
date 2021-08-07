@@ -5,7 +5,7 @@ import {
   CarouselControl,
   CarouselIndicators,
 } from 'reactstrap';
-import '../../styles/bootstrap_custom/carousel.css';
+import '../../global_styles/bootstrap_custom/carousel.css';
 import { Link } from 'react-router-dom';
 
 const items = [
