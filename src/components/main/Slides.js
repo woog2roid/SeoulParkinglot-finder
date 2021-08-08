@@ -7,25 +7,7 @@ import {
 } from 'reactstrap';
 import '../../global_styles/bootstrap_custom/carousel.css';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-
-const Wrapper = styled.div`
-    display: block;
-	margin: 0px auto;
-	@media all and (max-width:767px) {
-        width: 80%;
-        height: 80%;
-    }
-    @media all and (min-width:768px) and (max-width:1080px) {
-        width: 90%;
-        height: 60%;
-    }
-    @media all and (min-width:1081px) {
-		width: 70%;
-        height: 60%;
-    }
-`;
-
+import { Wrapper } from './SlidesStyle'
 const items = [
   {
     src: process.env.PUBLIC_URL + "/images/carousel/1.png",

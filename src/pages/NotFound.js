@@ -2,14 +2,14 @@ import React from 'react';
 import NavBar from '../components/common/NavBar';
 import Footer from '../components/common/Footer';
 import Error404 from '../components/common/Error404';
-import { Wrapper, ContentsWrapper, FooterWrapper } from '../global_styles/utils/CommonComponentsLayout';
+import { Wrapper, ContentsWrapper, FooterWrapper } from '../global_styles/utils/PageLayout';
 
 const NotFound = () => {
     return (
         <Wrapper>
+			<NavBar />
 			<ContentsWrapper>
-					<NavBar />
-					<Error404 />
+				<Error404 />
 			</ContentsWrapper>
 			<FooterWrapper>
 				<Footer />
