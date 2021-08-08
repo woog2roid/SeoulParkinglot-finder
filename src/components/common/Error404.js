@@ -1,35 +1,11 @@
 import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
-import styled from 'styled-components';
 import { Button } from 'reactstrap';
-import { WrapperUtil } from '../../global_styles/utils/FixContentsToCenter';
-
-const Wrapper = styled(WrapperUtil)`
-	height: 20%;
-`
-
-const Title = styled.div`
-	@media all and (max-width:767px) {
-    	font-size: 25px;  
-    }
-    @media all and (min-width:768px) and (max-width:1080px) {
-		font-size: 30px;
-    }
-    @media all and (min-width:1081px) {
-    	font-size: 40px;
-	}
-`;
-const Description = styled.div`
-	@media all and (max-width:767px) {
-    	font-size: 12px;  
-    }
-    @media all and (min-width:768px) and (max-width:1080px) {
-		font-size: 15px;
-    }
-    @media all and (min-width:1081px) {
-    	font-size: 20px;
-	}
-`;
+import {
+	Wrapper,
+	Title,
+	Description,
+} from './Error404Style'
 
 const Error404 = () => {
 	const history = useHistory();

@@ -2,7 +2,7 @@ import React from 'react';
 import NavBar from '../components/common/NavBar';
 import Footer from '../components/common/Footer';
 import Slides from '../components/main/Slides';
-import SearchMethod from '../components/main/SearchMethod';
+import SearchMethodButton from '../components/main/SearchMethodButton';
 import { Wrapper, ContentsWrapper, FooterWrapper } from '../global_styles/utils/CommonComponentsLayout';
 
 const Main = () => {
@@ -11,7 +11,7 @@ const Main = () => {
 			<ContentsWrapper>
 				<NavBar />
 				<Slides />
-				<SearchMethod />
+				<SearchMethodButton />
 			</ContentsWrapper>
 			<FooterWrapper>
 				<Footer />

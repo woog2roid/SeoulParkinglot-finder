@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from '../components/common/NavBar';
 import Footer from '../components/common/Footer';
-import Service from '../components/about/Service';
+import About from '../components/about/About';
 import { Wrapper, ContentsWrapper, FooterWrapper } from '../global_styles/utils/CommonComponentsLayout';
 
 const AboutService = () => {
@@ -9,7 +9,7 @@ const AboutService = () => {
         <Wrapper>
 			<ContentsWrapper>
 					<NavBar />
-					<Service />
+					<About />
 			</ContentsWrapper>
 			<FooterWrapper>
 				<Footer />
