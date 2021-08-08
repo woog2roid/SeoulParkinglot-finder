@@ -25,9 +25,9 @@ const ButtonWrapper = styled.div`
 const CircleButton = styled(Button)`
 	border-radius: 50%;
 	@media all and (max-width:767px) {
-        width: 150px;
-		height: 150px;
-		line-height: 130px;
+        width: 130px;
+		height: 130px;
+		line-height: 110px;
 		font-size: 13px;
 		& + & {
 			margin-left: 20px;

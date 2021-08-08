@@ -1,8 +1,4 @@
-.carousel-item {
-	text-align: center;
-}
-
 .carousel-item img {
-    border-radius: 3%;
+    border-radius: 5%;
 	width: 100%;
 }
