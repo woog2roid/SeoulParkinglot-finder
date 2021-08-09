@@ -2,20 +2,27 @@ import React from 'react';
 import NavBar from '../components/common/NavBar';
 import Footer from '../components/common/Footer';
 import MainComponent from '../components/main/MainComponent';
-import { Wrapper, ContentsWrapper, FooterWrapper } from '../global_styles/utils/PageLayout';
+import {
+	Wrapper,
+	NavWrapper,
+	ContentsWrapper,
+	FooterWrapper,
+} from '../global_styles/utils/PageLayout';
 
 const Main = () => {
-    return (
-        <Wrapper>
-			<NavBar />
+	return (
+		<Wrapper>
+			<NavWrapper>
+				<NavBar />
+			</NavWrapper>
 			<ContentsWrapper>
 				<MainComponent />
 			</ContentsWrapper>
 			<FooterWrapper>
 				<Footer />
 			</FooterWrapper>
-        </Wrapper>
-    );
+		</Wrapper>
+	);
 };
 
 export default Main;

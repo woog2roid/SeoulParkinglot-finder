@@ -16,13 +16,17 @@ import { Wrapper } from './NavBarStyle';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+  
+  const onClick = () => {
+	  setIsOpen(!isOpen);
+	  
+  };
 
   return (
     <Wrapper>
       <Navbar color="light" light expand="md">
         <NavbarBrand href="/seoul-parking-lot-finder">파킹랏</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
+        <NavbarToggler onClick={onClick} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
 			<NavItem>
