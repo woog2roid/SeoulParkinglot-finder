@@ -43,9 +43,9 @@ export const CircleButton = styled(Button)`
 		}
 	}
     @media all and (min-width:1081px) {
-        width: 250px;
-		height: 250px;
-		line-height: 230px;
+        width: 230px;
+		height: 230px;
+		line-height: 210px;
 		font-size: 25px;
 		& + & {
 			margin-left: 200px;
