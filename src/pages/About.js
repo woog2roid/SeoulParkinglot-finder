@@ -1,6 +1,6 @@
 import React from 'react';
-import NavBar from '../components/common/NavBar';
-import Footer from '../components/common/Footer';
+import NavBar from '../components/common/nav/NavBar';
+import Footer from '../components/common/footer/Footer';
 import About from '../components/about/About';
 import {
 	Wrapper,
