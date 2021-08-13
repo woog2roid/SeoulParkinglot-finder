@@ -11,13 +11,8 @@ import {
 	DropdownToggle,
 	DropdownMenu,
 	DropdownItem,
-	Modal,
-	ModalHeader,
-	ModalBody,
-	ModalFooter,
-	Button,
 } from 'reactstrap';
-import LevelControlModal from './LevelControlModal';
+import LevelControlModal from './modals/LevelControl';
 import { Wrapper } from './NavBarStyle';
 
 const NavBar = () => {
@@ -44,7 +39,7 @@ const NavBar = () => {
 							<DropdownMenu right>
 								<DropdownItem onClick={toggleModal}>
 									지도 축소/확대 레벨
-									<LevelControlModal isOpen={modal} toggle={toggleModal}/>
+									<LevelControlModal isOpen={modal} toggle={toggleModal} />
 								</DropdownItem>
 							</DropdownMenu>
 						</UncontrolledDropdown>
