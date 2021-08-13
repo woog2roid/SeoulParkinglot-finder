@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { WrapperUtil } from '../../../../global_styles/utils/FixContentsToCenter';
+import { ButtonGroup } from 'reactstrap';
 
-export const Wrapper = styled(WrapperUtil)`
-	height: 20%;
-`;
+export const ButtonWrapper = styled(ButtonGroup)`
+	width: 100%;
+	margin-bottom: 8px;
+`
