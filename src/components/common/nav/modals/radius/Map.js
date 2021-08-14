@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useEffect } from 'react';
 import ZoomLevelContext from '../../../../../contexts/MapOptionContext';
-import { Maps } from '../MapStyleForModal';
+import { Maps } from '../styles/MapStyleForModal';
 
 
 const Map = () => {
