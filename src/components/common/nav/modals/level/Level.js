@@ -1,29 +1,13 @@
-import React, { useContext, useRef, useEffect } from 'react';
-import { Modal, ModalHeader, ModalBody, Button } from 'reactstrap';
-import { Map } from '../../../../../global_styles/MapStyle'
+import React, { useContext } from 'react';
 import ZoomLevelContext from '../../../../../contexts/ZoomLevelContext';
+import Map from './Map';
+import { Modal, ModalHeader, ModalBody, Button } from 'reactstrap';
 import { ButtonWrapper } from './Style';
 import '../modal.css';
 
 const Level = ({ isOpen, toggle }) => {
-	const { state, actions } = useContext(ZoomLevelContext);
-
-	const map = useRef(null);
-	useEffect(() => {
-		window.kakao.maps.load(() => {
-			navigator.geolocation.getCurrentPosition((position) => {
-				const lat = position.coords.latitude,
-					lng = position.coords.longitude;
-				//37.5,127: seoul
-				const options = {
-					center: new window.kakao.maps.LatLng(lat, lng),
-					level: state.level,
-				};
-				new window.kakao.maps.Map(map.current, options);
-			});
-		});
-	}, [state]);
-
+	const { actions } = useContext(ZoomLevelContext);
+	
 	const onClickSml = () => {
 		actions.setLevel(5);
 	};
@@ -49,7 +33,7 @@ const Level = ({ isOpen, toggle }) => {
 						넓게
 					</Button>
 				</ButtonWrapper>
-				<Map ref={map} />
+				<Map />
 			</ModalBody>
 		</Modal>
 	);
