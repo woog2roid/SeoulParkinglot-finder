@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from '../components/common/nav/Navigation';
 import Footer from '../components/common/footer/Footer';
-import Error from '../components/common/404/Error';
+import Error from '../components/404/Error';
 import {
 	Wrapper,
 	NavWrapper,

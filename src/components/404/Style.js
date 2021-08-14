@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { WrapperUtil } from '../../../utils/FixedContents';
+import { WrapperUtil } from '../../utils/FixedContents';
 
 export const Wrapper = styled(WrapperUtil)`
 	height: 20%;
