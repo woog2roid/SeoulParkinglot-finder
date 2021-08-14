@@ -4,6 +4,10 @@ on:
   push:
     branches: [ master ]
 
+env:
+  REACT_APP_KAKAO_API_KEY: ${{secrets.REACT_APP_KAKAO_API_KEY}}
+  REACT_APP_SEOUL_API_KEY: ${{secrets.REACT_APP_SEOUL_API_KEY}}
+
 jobs:
   build:
     runs-on: ubuntu-latest
