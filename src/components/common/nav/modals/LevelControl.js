@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { Modal, ModalHeader, ModalBody, Button } from 'reactstrap';
 import { ButtonWrapper } from './LevelControlStyle';
-import '../../../../global_styles/bootstrap_custom/modal.css';
 import Map from '../../map/Map';
 import ZoomLevelContext from '../../../../contexts/ZoomLevelContext';
+import '../../../../global_styles/bootstrap_custom/modal.css';
 
 const LevelControl = ({ isOpen, toggle }) => {
 	const { actions } = useContext(ZoomLevelContext);
@@ -33,7 +33,7 @@ const LevelControl = ({ isOpen, toggle }) => {
 						넓게
 					</Button>
 				</ButtonWrapper>
-				<Map />
+				<Map/>
 			</ModalBody>
 		</Modal>
 	);

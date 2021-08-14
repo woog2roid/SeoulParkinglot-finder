@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useContext } from 'react';
 import ZoomLevelContext from '../../../contexts/ZoomLevelContext';
+import { MapWrapper } from './MapStyle';
 
 const Map = () => {
 	const map = useRef(null);
@@ -22,7 +23,7 @@ const Map = () => {
 	
 
 	return (
-		<div ref={map} style={{ width: '300px', height: '300px'}}/>
+		<MapWrapper ref={map}/>
 	);
 };
 
