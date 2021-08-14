@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
-import Map from '../common/map/Map';
 import { Wrapper, Buttons } from './SearchResultStyle';
 
 const SearchResult = () => {
@@ -16,8 +15,6 @@ const SearchResult = () => {
 	
 	return (
 		<Wrapper>
-			
-			<Map />
 			<div />
 			<Buttons outline color="primary" onClick={goMain}>
 				메인 페이지로 돌아가기
