@@ -8,6 +8,7 @@ const Error404 = () => {
 
 	const goBack = useCallback(
 		(e) => {
+			e.preventDefault();
 			history.goBack();
 		},
 		[history]
