@@ -12,8 +12,8 @@ import {
 	DropdownMenu,
 	DropdownItem,
 } from 'reactstrap';
-import LevelControlModal from './modals/LevelControl';
-import RadiusControlModal from './modals/RadiusControl';
+import LevelControlModal from './modals/level/LevelControl';
+import RadiusControlModal from './modals/radius/RadiusControl';
 import { Wrapper } from './NavBarStyle';
 
 const NavBar = () => {

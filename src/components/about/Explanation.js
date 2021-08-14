@@ -5,9 +5,9 @@ import {
 	Main,
 	Comain,
 	Description
-} from './AboutStyle'
+} from './Style'
 
-const About = () => {
+const Explanation = () => {
     return (
 		<Wrapper>
 			<Intro>서울시 공영주차장을 빠르게 찾아주는 서비스:</Intro>
@@ -29,4 +29,4 @@ const About = () => {
     );
 };
 
-export default About;
+export default Explanation;

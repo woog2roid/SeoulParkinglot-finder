@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from '../components/common/nav/NavBar';
 import Footer from '../components/common/footer/Footer';
-import About from '../components/about/About';
+import Explanation from '../components/about/Explanation';
 import {
 	Wrapper,
 	NavWrapper,
@@ -9,14 +9,14 @@ import {
 	FooterWrapper,
 } from '../global_styles/utils/PageLayout';
 
-const AboutService = () => {
+const About = () => {
 	return (
 		<Wrapper>
 			<NavWrapper>
 				<NavBar />
 			</NavWrapper>
 			<ContentsWrapper>
-				<About />
+				<Explanation />
 			</ContentsWrapper>
 			<FooterWrapper>
 				<Footer />
@@ -25,4 +25,4 @@ const AboutService = () => {
 	);
 };
 
-export default AboutService;
+export default About;

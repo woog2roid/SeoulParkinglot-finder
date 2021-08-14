@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Button } from 'reactstrap';
-import { Wrapper, Title, Description } from './Error404Style';
+import { Wrapper, Title, Description } from './Style';
 
 const Error404 = () => {
 	const history = useHistory();
