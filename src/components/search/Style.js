@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { WrapperUtil } from '../../global_styles/utils/FixContentsToCenter';
+import { WrapperUtil } from '../../utils/FixedContents';
 import { Button } from 'reactstrap';
 
 export const Wrapper = styled(WrapperUtil)`

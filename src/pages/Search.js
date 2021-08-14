@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBar from '../components/common/nav/Navigation';
-import SearchResult from '../components/search/SearchResult';
+import Result from '../components/search/Result';
 import Footer from '../components/common/footer/Footer';
 import {
 	Wrapper,
@@ -16,7 +16,7 @@ const Search = () => {
 				<NavBar />
 			</NavWrapper>
 			<ContentsWrapper>
-				<SearchResult />
+				<Result />
 			</ContentsWrapper>
 			<FooterWrapper>
 				<Footer />

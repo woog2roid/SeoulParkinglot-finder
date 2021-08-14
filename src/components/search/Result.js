@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Wrapper, Buttons } from './SearchResultStyle';
+import { Wrapper, Buttons } from './Style';
 
 const SearchResult = () => {
 	const history = useHistory();
