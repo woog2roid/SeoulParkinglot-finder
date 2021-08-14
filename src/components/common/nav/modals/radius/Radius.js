@@ -1,36 +1,36 @@
 import React, { useContext } from 'react';
 import MapOptionContext from '../../../../../contexts/MapOptionContext';
-import Map from './Map';
 import { Modal, ModalHeader, ModalBody, Button } from 'reactstrap';
+import Map from './Map';
 import { ButtonWrapper } from './Style';
-import '../modal.css';
+import '..//modal.css';
 
-const Level = ({ isOpen, toggle }) => {
+const Radius = ({ isOpen, toggle }) => {
 	const { actions } = useContext(MapOptionContext);
-	
-	const onClickZoomIn = () => {
-		actions.setLevel(5);
+
+	const onClickSml = () => {
+		actions.setRadius(5000);
 	};
 	const onClickStd = () => {
-		actions.setLevel(6);
+		actions.setRadius(8000);
 	};
-	const onClickZoomOut = () => {
-		actions.setLevel(8);
+	const onClickBig = () => {
+		actions.setRadius(10000);
 	};
-
+	
 	return (
 		<Modal isOpen={isOpen}>
-			<ModalHeader toggle={toggle}>지도 축소/확대 레벨</ModalHeader>
+			<ModalHeader toggle={toggle}>탐색 최대 반경</ModalHeader>
 			<ModalBody>
 				<ButtonWrapper>
-					<Button outline color="primary" onClick={onClickZoomIn}>
-						축소
+					<Button outline color="primary" onClick={onClickSml}>
+						좁게(5km)
 					</Button>
 					<Button outline color="primary" onClick={onClickStd}>
-						표준
+						표준(8km)
 					</Button>
-					<Button outline color="primary" onClick={onClickZoomOut}>
-						확대
+					<Button outline color="primary" onClick={onClickBig}>
+						넓게(10km)
 					</Button>
 				</ButtonWrapper>
 				<Map />
@@ -39,4 +39,4 @@ const Level = ({ isOpen, toggle }) => {
 	);
 };
 
-export default Level;
+export default Radius;
