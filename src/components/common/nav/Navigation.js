@@ -12,11 +12,11 @@ import {
 	DropdownMenu,
 	DropdownItem,
 } from 'reactstrap';
-import LevelControlModal from './modals/level/LevelControl';
-import RadiusControlModal from './modals/radius/RadiusControl';
-import { Wrapper } from './NavBarStyle';
+import Level from './modals/level/Level';
+import Radius from './modals/radius/Radius';
+import { Wrapper } from './Style';
 
-const NavBar = () => {
+const Navigation = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const toggleNav = () => setIsOpen(!isOpen);
 
@@ -45,12 +45,12 @@ const NavBar = () => {
 							<DropdownMenu right>
 								<DropdownItem onClick={toggleZoomModal}>
 									지도 축소/확대 레벨
-									<LevelControlModal isOpen={zoomModal}
+									<Level isOpen={zoomModal}
 										toggle={toggleZoomModal} />
 								</DropdownItem>
 								<DropdownItem onClick={toggleRadiusModal}>
 									탐색 최대 반경
-									<RadiusControlModal isOpen={radiusModal}
+									<Radius isOpen={radiusModal}
 										toggle={toggleRadiusModal} />
 								</DropdownItem>
 							</DropdownMenu>
@@ -62,4 +62,4 @@ const NavBar = () => {
 	);
 };
 
-export default NavBar;
+export default Navigation;
