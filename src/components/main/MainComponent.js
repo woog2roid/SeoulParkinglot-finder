@@ -1,6 +1,6 @@
 import React from 'react';
 import Slides from './Slides';
-import Search from './Search';
+import InitiateSearch from './InitiateSearch';
 import { Wrapper, SlidesWrapper, ButtonWrapper, TextWrapper } from './MainComponentStyle';
 
 const MainComponent = () => {
@@ -10,7 +10,7 @@ const MainComponent = () => {
 				<Slides />
 			</SlidesWrapper>
 			<ButtonWrapper>
-				<Search />
+				<InitiateSearch />
 			</ButtonWrapper>
 			<TextWrapper>
 				⁕위치 정보 권한은 사용자 주변의 주차장을 찾기 위해 필요합니다.
