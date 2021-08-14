@@ -56,6 +56,7 @@ export const CircleSubmit = styled.input`
 	//bootstrap primary color
 	display: inline-block;
 	color: #007BFF;
+	background-color: white;
 	border-color: #007BFF;
 	border-width: thin;
 	border-style: solid;
