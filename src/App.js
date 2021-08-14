@@ -4,12 +4,14 @@ import About from './pages/About';
 import Main from './pages/Main';
 import NotFound from './pages/NotFound';
 import Search from './pages/Search';
-import { Wrapper } from './global_styles/utils/ApplicationStyle';
+import { Wrapper } from './utils/AppStyle';
+import GlobalStyle from './utils/GlobalStyle';
 import { MapOptionProvider } from './contexts/MapOptionContext';
 
 const App = () => {
 	return (
 		<Wrapper>
+			<GlobalStyle />
 			<MapOptionProvider>
 				<Switch>
 					<Route path="/seoul-parking-lot-finder/" component={Main} exact={true} />

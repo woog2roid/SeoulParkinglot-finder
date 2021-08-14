@@ -7,7 +7,7 @@ import {
 	NavWrapper,
 	ContentsWrapper,
 	FooterWrapper,
-} from '../global_styles/utils/PageLayout';
+} from '../utils/Layout';
 
 const Search = () => {
 	return (

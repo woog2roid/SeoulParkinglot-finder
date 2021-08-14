@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { WrapperUtil } from '../../global_styles/utils/FixContentsToCenter';
+import { WrapperUtil } from '../../utils/FixedContents';
 
 export const Wrapper = styled(WrapperUtil)`
 	@media all and (max-width:767px) {
