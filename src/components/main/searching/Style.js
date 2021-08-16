@@ -53,15 +53,15 @@ export const Label = styled.label`
 export const CircleSubmit = styled.input`
 	//bootstrap primary color
 	display: inline-block;
-	color: #007BFF;
+	color: ${(props) => props.theme.primary};
 	background-color: white;
-	border-color: #007BFF;
+	border-color: ${(props) => props.theme.primary};;
 	border-width: thin;
 	border-style: solid;
 	border-radius: 50%;
 	&:hover{
 		color: white;
-		background-color: #007BFF;
+		background-color: ${(props) => props.theme.primary};;
 	}
 	@media ${(props) => props.theme.mobile} {
         width: 130px;
