@@ -1,27 +1,27 @@
 import styled from 'styled-components';
-import { WrapperUtil } from '../../utils/FixedContents';
+import { WrapperUtil } from '../../styles/FixedContents';
 import { Button } from 'reactstrap';
 
 export const Wrapper = styled(WrapperUtil)`
-	@media all and (max-width:767px) {
+	@media ${(props) => props.theme.mobile} {
 		height: 53%;
-    }
-    @media all and (min-width:768px) and (max-width:1080px) {
+	}
+	@media ${(props) => props.theme.tablet} {
         height: 55%;
-    }
-    @media all and (min-width:1081px) {
+	}
+	@media ${(props) => props.theme.desktop} {
         height: 75%;
-    }	
+	}
 `;
 
 export const Buttons = styled(Button)`
-	@media all and (max-width:767px) {
+	@media ${(props) => props.theme.mobile} {
 		width: 300px;
-    }
-    @media all and (min-width:768px) and (max-width:1080px) {
+	}
+	@media ${(props) => props.theme.tablet} {
         width: 500px;
     }
-    @media all and (min-width:1081px) {
+	@media ${(props) => props.theme.desktop} {
         width: 600px;
-    }
+	}
 `;

@@ -3,13 +3,11 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
     display: block;
 	margin: 0px auto;
-	@media all and (max-width:767px) {
-        width: 80%;
-    }
-    @media all and (min-width:768px) and (max-width:1080px) {
+    width: 80%;
+	@media ${(props) => props.theme.tablet} {
         width: 90%;
-    }
-    @media all and (min-width:1081px) {
+	}
+	@media ${(props) => props.theme.desktop} {
 		width: 55%;
-    }
+	}
 `;

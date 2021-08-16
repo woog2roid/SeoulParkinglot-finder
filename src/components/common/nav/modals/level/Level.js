@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import MapOptionContext from '../../../../../contexts/MapOptionContext';
 import Map from './Map';
 import { Modal, ModalHeader, ModalBody, Button } from 'reactstrap';
-import { ButtonWrapper } from './Style';
+import { ButtonWrapper } from '../styles/ButtonGroupStyle';
 import '../styles/modal.css';
 
 const Level = ({ isOpen, toggle }) => {

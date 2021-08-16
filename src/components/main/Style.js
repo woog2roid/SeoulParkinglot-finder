@@ -1,17 +1,17 @@
 import styled from 'styled-components';
-import { WrapperUtil } from '../../utils/FixedContents';
+import { WrapperUtil } from '../../styles/FixedContents';
 
 export const Wrapper = styled(WrapperUtil)`
-	@media all and (max-width:767px) {
+	@media ${(props) => props.theme.mobile} {
 		height: 53%;
-    }
-    @media all and (min-width:768px) and (max-width:1080px) {
+	}
+	@media ${(props) => props.theme.tablet} {
         height: 55%;
-    }
-    @media all and (min-width:1081px) {
+	}
+	@media ${(props) => props.theme.desktop} {
         height: 75%;
-    }	
-`
+	}
+`;
 
 export const SlidesWrapper = styled.div`
 	margin-bottom: 0;
@@ -22,7 +22,13 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const TextWrapper = styled.div`
-	@media all and (max-width:767px) {
+	@media ${(props) => props.theme.mobile} {
 		font-size: 10px;
-    }
+	}
+	@media ${(props) => props.theme.tablet} {
+		font-size: 14px;
+	}
+	@media ${(props) => props.theme.desktop} {
+		font-size: 16px;	
+	}
 `;

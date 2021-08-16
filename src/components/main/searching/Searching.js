@@ -5,7 +5,7 @@ import { Wrapper, FormWrapper, FormGroup, Label, CircleSubmit } from './Style';
 const InitiateSearch = () => {
 	return (
 		<Wrapper>
-			<FormWrapper action='seoul-parking-lot-finder/search'>
+			<FormWrapper action='./search'>
 				<FormGroup>
 					<Label><Input type="checkbox" name="alwaysfree"/>무료 주차장</Label><br />
 					<Label><Input type="checkbox" name="nightfree"/>야간 무료개장</Label><br />

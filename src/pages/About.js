@@ -7,7 +7,7 @@ import {
 	NavWrapper,
 	ContentsWrapper,
 	FooterWrapper,
-} from '../utils/Layout';
+} from '../styles/Layout';
 
 const About = () => {
 	return (
