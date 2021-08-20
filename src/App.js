@@ -19,7 +19,7 @@ const App = () => {
 				<Switch>
 					<Route path="/seoul-parking-lot-finder/" component={Main} exact={true} />
 					<Route path="/seoul-parking-lot-finder/about/" component={About} />
-					<Route path="/seoul-parking-lot-finder/search" component={Search} />
+					<Route path="/seoul-parking-lot-finder/search/" component={Search} />
 					<Route component={NotFound} />
 				</Switch>
 			</MapOptionProvider>

@@ -21,7 +21,7 @@ const InitiateSearch = () => {
 		url = makeUrl(e.target.satfree, url);
 		url = makeUrl(e.target.holidayfree, url);
 		url = url.slice(1, url.length);
-		history.push('/saerch?' + url);
+		history.push('/seoul-parking-lot-finder/search?' + url);
 	};
 
 	return (
