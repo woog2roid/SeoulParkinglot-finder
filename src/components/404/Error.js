@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import { Wrapper, Title, Description } from './Style';
@@ -6,13 +6,10 @@ import { Wrapper, Title, Description } from './Style';
 const Error = () => {
 	const history = useHistory();
 
-	const goBack = useCallback(
-		(e) => {
-			e.preventDefault();
-			history.goBack();
-		},
-		[history]
-	);
+	const goBack = (e) => {
+		e.preventDefault();
+		history.goBack();
+	};
 
 	return (
 		<Wrapper>

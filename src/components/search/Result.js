@@ -1,18 +1,15 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Wrapper, Buttons } from './Style';
 
 const SearchResult = () => {
 	const history = useHistory();
 
-	const goMain = useCallback(
-		(e) => {
-			e.preventDefault();
-			history.push('/seoul-parking-lot-finder');
-		},
-		[history]
-	);
-	
+	const goMain = (e) => {
+		e.preventDefault();
+		history.push('/seoul-parking-lot-finder');
+	};
+
 	return (
 		<Wrapper>
 			<div />

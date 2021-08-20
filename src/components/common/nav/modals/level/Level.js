@@ -7,15 +7,21 @@ import '../styles/modal.css';
 
 const Level = ({ isOpen, toggle }) => {
 	const { actions } = useContext(MapOptionContext);
-	
+
+	const level = {
+		zoomIn: 5,
+		standard: 6,
+		zoomOut: 8,
+	};
+
 	const onClickZoomIn = () => {
-		actions.setLevel(5);
+		actions.setLevel(level.zoomIn);
 	};
 	const onClickStd = () => {
-		actions.setLevel(6);
+		actions.setLevel(level.standard);
 	};
 	const onClickZoomOut = () => {
-		actions.setLevel(8);
+		actions.setLevel(level.zoomOut);
 	};
 
 	return (

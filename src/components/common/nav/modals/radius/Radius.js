@@ -8,16 +8,22 @@ import '../styles/modal.css';
 const Radius = ({ isOpen, toggle }) => {
 	const { actions } = useContext(MapOptionContext);
 
+	const radius = {
+		small: 5000,
+		standard: 8000,
+		big: 10000,
+	};
+
 	const onClickSml = () => {
-		actions.setRadius(5000);
+		actions.setRadius(radius.small);
 	};
 	const onClickStd = () => {
-		actions.setRadius(8000);
+		actions.setRadius(radius.standard);
 	};
 	const onClickBig = () => {
-		actions.setRadius(10000);
+		actions.setRadius(radius.big);
 	};
-	
+
 	return (
 		<Modal isOpen={isOpen}>
 			<ModalHeader toggle={toggle}>탐색 최대 반경</ModalHeader>
