@@ -6,19 +6,22 @@ export const Wrapper = styled.div`
 `;
 
 export const NavWrapper = styled.div`
-	position: relative;
+	position: absolute;
+	width: 100%;
+	height: 60px;
 	z-index: 2;
 `
 
 export const ContentsWrapper = styled.div`
-	padding-bottom: 2.5rem;
+	position: relative;
+	min-height: 93vh;
+	padding-top: 60px;
+	margin-bottom: 3vh;
 	z-index: 1;
 `;
 
 export const FooterWrapper = styled.div`
-	position: absolute;
-	bottom: 0;
+	position: relative;
 	width: 100%;
-	height: 2.5rem;
 	background-color: white;
 `;
