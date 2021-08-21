@@ -20,7 +20,7 @@ const Map = () => {
 			navigator.geolocation.getCurrentPosition((position) => {
 				const lat = position.coords.latitude,
 					lng = position.coords.longitude;
-				const center = new window.kakao.maps.LatLng(37.5, 127);
+				const center = new window.kakao.maps.LatLng(lat, lng);
 
 				const mapDrawingOptions = {
 					center: center,
