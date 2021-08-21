@@ -11,9 +11,10 @@ const Map = () => {
 			navigator.geolocation.getCurrentPosition((position) => {
 				const lat = position.coords.latitude,
 					lng = position.coords.longitude;
+				const center = new window.kakao.maps.LatLng(lat, lng);
 
 				const options = {
-					center: new window.kakao.maps.LatLng(lat, lng),
+					center: center,
 					level: state.level,
 				};
 				new window.kakao.maps.Map(map.current, options);

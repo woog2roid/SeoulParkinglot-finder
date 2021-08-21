@@ -7,7 +7,7 @@ const Map = () => {
 	const { state } = useContext(ZoomLevelContext);
 	const map = useRef(null);
 
-	const circleOptionDefault = {
+	const circleOption = {
 		strokeWeight: 1, 
 		strokeColor: '#007BFF', 
 		strokeOpacity: 0.1, 
@@ -21,18 +21,16 @@ const Map = () => {
 			navigator.geolocation.getCurrentPosition((position) => {
 				const lat = position.coords.latitude,
 					lng = position.coords.longitude;
+				const center = new window.kakao.maps.LatLng(lat, lng);
 				
 				const mapDrawingOptions = {
-					center: new window.kakao.maps.LatLng(lat, lng),
-					level: 10
+					center: center,
+					level: 10,
 				};
 				const KakaoMap = new window.kakao.maps.Map(map.current, mapDrawingOptions);
 				
-				const circleOptionPlus = {
-					center: new window.kakao.maps.LatLng(lat, lng),
-            		radius: state.radius
-				}
-				const circleOption = Object.assign(circleOptionDefault, circleOptionPlus);
+				circleOption.center = center;
+				circleOption.radius = state.radius;
 				new window.kakao.maps.Circle(circleOption).setMap(KakaoMap);
 			});
 		});

@@ -30,13 +30,13 @@ const Level = ({ isOpen, toggle }) => {
 			<ModalBody>
 				<ButtonWrapper>
 					<Button outline color="primary" onClick={onClickZoomIn}>
-						축소
+						확대
 					</Button>
 					<Button outline color="primary" onClick={onClickStd}>
 						표준
 					</Button>
 					<Button outline color="primary" onClick={onClickZoomOut}>
-						확대
+						축소
 					</Button>
 				</ButtonWrapper>
 				<Map />
