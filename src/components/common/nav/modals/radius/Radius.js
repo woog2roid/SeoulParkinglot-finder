@@ -3,7 +3,7 @@ import MapOptionContext from '../../../../../contexts/MapOptionContext';
 import { Modal, ModalHeader, ModalBody, Button } from 'reactstrap';
 import Map from './Map';
 import { ButtonWrapper } from '../styles/ButtonGroupStyle';
-import '../styles/modal.css';
+import '../../../../../styles/modal/modal.css';
 
 const Radius = ({ isOpen, toggle }) => {
 	const { actions } = useContext(MapOptionContext);
