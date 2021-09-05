@@ -12,6 +12,7 @@ import {
 	DropdownMenu,
 	DropdownItem,
 } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import Level from './modals/level/Level';
 import Radius from './modals/radius/Radius';
 import { Wrapper } from './Style';
@@ -39,12 +40,12 @@ const Navigation = () => {
 	return (
 		<Wrapper>
 			<Navbar color="light" light expand="md">
-				<NavbarBrand href="/seoul-parking-lot-finder">파킹랏</NavbarBrand>
+				<NavbarBrand tag={Link} to="/seoul-parking-lot-finder">파킹랏</NavbarBrand>
 				<NavbarToggler onClick={toggleNav} />
 				<Collapse isOpen={isOpen} navbar>
 					<Nav className="mr-auto" navbar>
 						<NavItem>
-							<NavLink href="/seoul-parking-lot-finder/about/">
+							<NavLink tag={Link} to="/seoul-parking-lot-finder/about/">
 								서비스 소개
 							</NavLink>
 						</NavItem>
