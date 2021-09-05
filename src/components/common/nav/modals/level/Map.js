@@ -7,19 +7,12 @@ const Map = () => {
 	const map = useRef(null);
 	
 	useEffect(() => {
-		window.kakao.maps.load(() => {
-			navigator.geolocation.getCurrentPosition((position) => {
-				const lat = position.coords.latitude,
-					lng = position.coords.longitude;
-				const center = new window.kakao.maps.LatLng(lat, lng);
-
-				const options = {
-					center: center,
-					level: state.level,
-				};
-				new window.kakao.maps.Map(map.current, options);
-			});
-		});
+		const center = new window.kakao.maps.LatLng(state.latitude, state.longitude);
+		const options = {
+			center: center,
+			level: state.level,
+		};
+		new window.kakao.maps.Map(map.current, options);
 	}, [state]);
 	
 	return (

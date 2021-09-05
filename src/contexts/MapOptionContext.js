@@ -1,23 +1,38 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
 const MapOptionContext = createContext({
 	state: {
 		level: 6,
-		radius: 8000
+		radius: 8000,
+		latitude: 0,
+		longitude: 0
 	},
 	actions:{
 		setLevel: () => {},
-		setRadius: () => {}
+		setRadius: () => {},
+		setLatitude: () => {},
+		setLongitude: () => {}
 	},
 });
 
 export const MapOptionProvider = ({ children }) => {
 	const [level, setLevel] = useState(localStorage.getItem('level') || 6);
 	const [radius, setRadius] = useState(localStorage.getItem('radius') || 8000);
+	const [latitude, setLatitude] = useState();
+	const [longitude, setLongitude] = useState();
+	
+	useEffect(() => {
+		navigator.geolocation.getCurrentPosition((position) => {
+			const lat = position.coords.latitude,
+			  lng = position.coords.longitude;
+			setLatitude(lat);
+			setLongitude(lng);
+		});
+	}, []);
 	
 	const value = {
-		state: { level, radius },
-		actions: { setLevel, setRadius }
+		state: { level, radius, latitude, longitude },
+		actions: { setLevel, setRadius, setLatitude, setLongitude }
 	};
 	
 	return (
