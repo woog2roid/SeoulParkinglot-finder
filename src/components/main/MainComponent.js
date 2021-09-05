@@ -2,6 +2,7 @@ import React from 'react';
 import Slides from './slides/Slides';
 import InitiateSearch from './searching/Searching';
 import { Wrapper, SlidesWrapper, ButtonWrapper, TextWrapper } from './Style';
+
 const MainComponent = () => {
 	return (
 		<Wrapper>
@@ -17,4 +18,5 @@ const MainComponent = () => {
 		</Wrapper>
 	);
 };
+
 export default MainComponent;

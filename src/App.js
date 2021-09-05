@@ -6,23 +6,11 @@ import NotFound from './pages/NotFound';
 import Search from './pages/Search';
 import { Wrapper } from './styles/AppStyle';
 import GlobalStyle from './styles/GlobalStyle';
-import MapOptionContext, { MapOptionProvider } from './contexts/MapOptionContext';
+import { MapOptionProvider } from './contexts/MapOptionContext';
 import { ThemeProvider } from 'styled-components';
 import Theme from './styles/Theme';
 
 const App = () => {
-	const { actions, state } = useContext(MapOptionContext);
-	
-	//localStorage에서 Opiton 연동
-	useEffect(() => {
-		if(localStorage.getItem('level')) {
-			actions.setLevel(localStorage.getItem('level'));
-	}
-		if(localStorage.getItem('radius')) {
-			actions.setRadius(localStorage.getItem('radius'));
-		}
-	}, []);
-	
 	return (
 		<Wrapper>
 			<GlobalStyle />

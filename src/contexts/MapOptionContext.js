@@ -12,8 +12,8 @@ const MapOptionContext = createContext({
 });
 
 export const MapOptionProvider = ({ children }) => {
-	const [level, setLevel] = useState(6);
-	const [radius, setRadius] = useState(8000);
+	const [level, setLevel] = useState(localStorage.getItem('level') || 6);
+	const [radius, setRadius] = useState(localStorage.getItem('radius') || 8000);
 	
 	const value = {
 		state: { level, radius },
