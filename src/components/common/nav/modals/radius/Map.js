@@ -7,6 +7,7 @@ const Map = () => {
 	const { state } = useContext(ZoomLevelContext);
 	const map = useRef(null);
 
+	//원을 그리는 기본 옵션
 	const circleOption = {
 		strokeWeight: 1, 
 		strokeColor: '#007BFF', 
@@ -18,11 +19,13 @@ const Map = () => {
 	
 	useEffect(() => {
 		window.kakao.maps.load(() => {
+			//현재 위치로 보여준다.
 			navigator.geolocation.getCurrentPosition((position) => {
 				const lat = position.coords.latitude,
 					lng = position.coords.longitude;
 				const center = new window.kakao.maps.LatLng(lat, lng);
 				
+				//레벨은 10으로 통일 후, radius만 변화시켜줄 예정
 				const mapDrawingOptions = {
 					center: center,
 					level: 10,

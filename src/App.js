@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import About from './pages/About';
 import Main from './pages/Main';
@@ -6,11 +6,23 @@ import NotFound from './pages/NotFound';
 import Search from './pages/Search';
 import { Wrapper } from './styles/AppStyle';
 import GlobalStyle from './styles/GlobalStyle';
-import { MapOptionProvider } from './contexts/MapOptionContext';
+import MapOptionContext, { MapOptionProvider } from './contexts/MapOptionContext';
 import { ThemeProvider } from 'styled-components';
 import Theme from './styles/Theme';
 
 const App = () => {
+	const { actions, state } = useContext(MapOptionContext);
+	
+	//localStorage에서 Opiton 연동
+	useEffect(() => {
+		if(localStorage.getItem('level')) {
+			actions.setLevel(localStorage.getItem('level'));
+	}
+		if(localStorage.getItem('radius')) {
+			actions.setRadius(localStorage.getItem('radius'));
+		}
+	}, []);
+	
 	return (
 		<Wrapper>
 			<GlobalStyle />
