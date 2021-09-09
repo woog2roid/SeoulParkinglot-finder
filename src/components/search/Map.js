@@ -16,23 +16,16 @@ const Map = () => {
 	};
 
 	useEffect(() => {
-		window.kakao.maps.load(() => {
-			navigator.geolocation.getCurrentPosition((position) => {
-				const lat = position.coords.latitude,
-					lng = position.coords.longitude;
-				const center = new window.kakao.maps.LatLng(lat, lng);
-
-				const mapDrawingOptions = {
-					center: center,
-					level: state.level,
-				};
-				const KakaoMap = new window.kakao.maps.Map(map.current, mapDrawingOptions);
-				
-				circleOption.center = center;
-				circleOption.radius = state.radius;
-				new window.kakao.maps.Circle(circleOption).setMap(KakaoMap);
-			});
-		});
+		const center = new window.kakao.maps.LatLng(state.latitude, state.longitude);
+		const mapDrawingOptions = {
+			center: center,
+			level: state.level,
+		};
+		const KakaoMap = new window.kakao.maps.Map(map.current, mapDrawingOptions);
+			
+		circleOption.center = center;
+		circleOption.radius = state.radius;
+		new window.kakao.maps.Circle(circleOption).setMap(KakaoMap);
 	}, [state]);
 
 	return <Maps ref={map} />;
