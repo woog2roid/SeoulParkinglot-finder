@@ -2,10 +2,10 @@ import React, { useContext, useRef, useEffect, useState } from 'react';
 import ZoomLevelContext from '../../../../../contexts/MapOptionContext';
 import { Maps } from '../../../../../styles/modal/MapStyle';
 import { Input, Wrapper } from './Style';
-import info from './Info';
+import Info from './Info';
 
 const Map = ({ isActivated, toggle }) => {
-	const { state } = useContext(ZoomLevelContext);
+	const { state, actions } = useContext(ZoomLevelContext);
 	const map = useRef(null);
 
 	const [keyword, setKeyword] = useState('');
@@ -44,7 +44,7 @@ const Map = ({ isActivated, toggle }) => {
 						let bounds = new window.kakao.maps.LatLngBounds();
 						for (let i = 0; i < data.length; i++) {
 							let marker = displayMarker(data[i]);
-							onClickMarker(marker, data[i].place_name);
+							onClickMarker(marker, data[i]);
 							bounds.extend(new window.kakao.maps.LatLng(data[i].y, data[i].x));
 						}
 						kakaoMap.setBounds(bounds);
@@ -56,15 +56,24 @@ const Map = ({ isActivated, toggle }) => {
 						position: new window.kakao.maps.LatLng(place.y, place.x),
 					});
 				}
-				function onClickMarker(marker,title) {
+				function onClickMarker(marker,data) {
 					window.kakao.maps.event.addListener(marker, 'click', () => {
-						displayInfowindow(marker, title);
+						displayInfowindow(marker, data);
 					});
 				}
-				const infowindow = new window.kakao.maps.InfoWindow({zIndex:1});
-				function displayInfowindow(marker, title) {
+				const infowindow = new window.kakao.maps.InfoWindow({zIndex:1, removable:true});
+				function displayInfowindow(marker, data) {
 					infowindow.close();
-					infowindow.setContent(info(title, isActivated, toggle));
+					//react Hook을 사용하기 위해 Button의 onClick은 여기서 마무리 짓는다.
+					let info = Info(data, isActivated, toggle);
+					info.getElementsByTagName("button")[0].onclick = function () {
+						isActivated();
+						toggle();
+						actions.setLatitude(lat);
+						actions.setLongitude(lng);	
+					}
+					
+					infowindow.setContent(info);
 					infowindow.open(kakaoMap, marker);
 				}
 			});

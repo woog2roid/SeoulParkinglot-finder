@@ -16,11 +16,13 @@ const MapOptionContext = createContext({
 });
 
 export const MapOptionProvider = ({ children }) => {
+	/*상태 목록*/
+	//localStorage와 연동한다.
 	const [level, setLevel] = useState(localStorage.getItem('level') || 6);
 	const [radius, setRadius] = useState(localStorage.getItem('radius') || 8000);
+	//처음 앱이 켜질 때, 현재위치를 받아간다.
 	const [latitude, setLatitude] = useState();
 	const [longitude, setLongitude] = useState();
-	
 	useEffect(() => {
 		navigator.geolocation.getCurrentPosition((position) => {
 			const lat = position.coords.latitude,
