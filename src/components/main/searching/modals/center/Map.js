@@ -1,11 +1,11 @@
 import React, { useContext, useRef, useEffect, useState } from 'react';
-import ZoomLevelContext from '../../../../../contexts/MapOptionContext';
+import MapOptionContext from '../../../../../contexts/MapOptionContext';
 import { Maps } from '../../../../../styles/modal/MapStyle';
 import { Input, Wrapper } from './Style';
 import Info from './Info';
 
-const Map = ({ isActivated, toggle }) => {
-	const { state, actions } = useContext(ZoomLevelContext);
+const Map = ({ isActivated, toggleModal, toggleLocation }) => {
+	const { state, actions } = useContext(MapOptionContext);
 	const map = useRef(null);
 
 	const [keyword, setKeyword] = useState('');
@@ -65,12 +65,14 @@ const Map = ({ isActivated, toggle }) => {
 				function displayInfowindow(marker, data) {
 					infowindow.close();
 					//react Hook을 사용하기 위해 Button의 onClick은 여기서 마무리 짓는다.
-					let info = Info(data, isActivated, toggle);
+					let info = Info(data.place_name);
 					info.getElementsByTagName("button")[0].onclick = function () {
 						isActivated();
-						toggle();
+						toggleLocation();
+						toggleModal();
 						actions.setLatitude(data.y);
 						actions.setLongitude(data.x);	
+						actions.setLocation(data.place_name);
 					}
 					
 					infowindow.setContent(info);

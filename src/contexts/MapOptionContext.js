@@ -5,13 +5,15 @@ const MapOptionContext = createContext({
 		level: 6,
 		radius: 8000,
 		latitude: 0,
-		longitude: 0
+		longitude: 0,
+		location: "", 
 	},
 	actions:{
 		setLevel: () => {},
 		setRadius: () => {},
 		setLatitude: () => {},
-		setLongitude: () => {}
+		setLongitude: () => {},
+		setLocation: () => {},
 	},
 });
 
@@ -31,10 +33,12 @@ export const MapOptionProvider = ({ children }) => {
 			setLongitude(lng);
 		});
 	}, []);
+	//location은 center modal에서 "여기로 설정"을 눌러야만 작동함
+	const [location, setLocation] = useState();
 	
 	const value = {
-		state: { level, radius, latitude, longitude },
-		actions: { setLevel, setRadius, setLatitude, setLongitude }
+		state: { level, radius, latitude, longitude, location },
+		actions: { setLevel, setRadius, setLatitude, setLongitude, setLocation }
 	};
 	
 	return (

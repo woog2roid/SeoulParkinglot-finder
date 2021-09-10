@@ -65,8 +65,7 @@ const buttonStyle = `
 	`}
 `;
 
-const Info = (data, isActivated, toggle) => {
-	let title = data.place_name;
+const Info = (title) => {
 	if(title.length > 10) title = title.substr(0, 10) + "...";
 
 	let wrapper = document.createElement('div');

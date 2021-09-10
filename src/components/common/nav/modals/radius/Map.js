@@ -1,10 +1,10 @@
 import React, { useContext, useRef, useEffect } from 'react';
-import ZoomLevelContext from '../../../../../contexts/MapOptionContext';
+import MapOptionContext from '../../../../../contexts/MapOptionContext';
 import { Maps } from '../../../../../styles/modal/MapStyle';
 
 
 const Map = () => {
-	const { state } = useContext(ZoomLevelContext);
+	const { state } = useContext(MapOptionContext);
 	const map = useRef(null);
 
 	//원을 그리는 기본 옵션
