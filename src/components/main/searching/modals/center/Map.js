@@ -69,8 +69,8 @@ const Map = ({ isActivated, toggle }) => {
 					info.getElementsByTagName("button")[0].onclick = function () {
 						isActivated();
 						toggle();
-						actions.setLatitude(lat);
-						actions.setLongitude(lng);	
+						actions.setLatitude(data.y);
+						actions.setLongitude(data.x);	
 					}
 					
 					infowindow.setContent(info);
