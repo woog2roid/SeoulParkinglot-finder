@@ -1,8 +1,9 @@
 import React, { useContext, useRef, useEffect } from 'react';
 import ZoomLevelContext from '../../contexts/MapOptionContext';
-import { Maps } from './Style';
+import { LoadingWrapper, LoadingMaps, Maps, Progress } from './Style';
 
-const Map = () => {
+
+const Map = ({ loading }) => {
 	const { state } = useContext(ZoomLevelContext);
 	const map = useRef(null);
 
@@ -28,7 +29,17 @@ const Map = () => {
 		new window.kakao.maps.Circle(circleOption).setMap(KakaoMap);
 	}, [state]);
 
-	return <Maps ref={map} />;
+	if(loading) {
+		return (
+			<LoadingWrapper>
+				<Progress color="primary" />
+				<LoadingMaps ref={map} />
+			</LoadingWrapper>
+		);
+	}
+	else {
+		return <Maps ref={map} />;
+	}
 };
 
 export default Map;

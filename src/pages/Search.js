@@ -9,14 +9,14 @@ import {
 	FooterWrapper,
 } from '../styles/Layout';
 
-const Search = () => {
+const Search = ({ location }) => {
 	return (
 		<Wrapper>
 			<NavWrapper>
 				<NavBar />
 			</NavWrapper>
 			<ContentsWrapper>
-				<Result />
+				<Result location={location}/>
 			</ContentsWrapper>
 			<FooterWrapper>
 				<Footer />

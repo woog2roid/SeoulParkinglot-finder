@@ -23,8 +23,8 @@ export const MapOptionProvider = ({ children }) => {
 	const [level, setLevel] = useState(localStorage.getItem('level') || 6);
 	const [radius, setRadius] = useState(localStorage.getItem('radius') || 8000);
 	//처음 앱이 켜질 때, 현재위치를 받아간다.
-	const [latitude, setLatitude] = useState();
-	const [longitude, setLongitude] = useState();
+	const [latitude, setLatitude] = useState(0);
+	const [longitude, setLongitude] = useState(0);
 	useEffect(() => {
 		navigator.geolocation.getCurrentPosition((position) => {
 			const lat = position.coords.latitude,

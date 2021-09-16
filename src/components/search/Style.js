@@ -1,5 +1,8 @@
+/*
+loading 중일 때: loading이 prefix로 붙는다.
+*/
 import styled from 'styled-components';
-import { Button } from 'reactstrap';
+import { Button, Spinner } from 'reactstrap';
 
 export const Wrapper = styled.div`
 	text-align: center;
@@ -37,17 +40,17 @@ export const Maps = styled.div`
 	@media ${(props) => props.theme.mobile} {
 		width: 90%;
 		height: 360px;
-		margin-bottom: 4px;
+		margin-bottom: 10px;
 	}
 	@media ${(props) => props.theme.tablet} {
 		width: 80%;
 		height: 600px;
-		margin-bottom: 8px;
+		margin-bottom: 15px;
 	}
 	@media ${(props) => props.theme.desktop} {
 		width: 60%;
 		height: 720px;
-		margin-bottom: 15px;
+		margin-bottom: 20px;
 	}
 `;
 
@@ -78,4 +81,30 @@ export const Description = styled.div`
     	font-size: 16px;
 		width: 600px;
 	}
+`;
+
+/*LOADING*/
+export const LoadingWrapper = styled.div`
+	position: relative;
+	@media ${(props) => props.theme.mobile} {
+		height: 370px;
+	}
+	@media ${(props) => props.theme.tablet} {
+		height: 615px;
+	}
+	@media ${(props) => props.theme.desktop} {
+		height: 740px;
+	}
+`;
+
+export const LoadingMaps = styled(Maps)`
+	opacity: 0.7;
+`;
+
+export const Progress = styled(Spinner)`
+	position: absolute;
+	width: 90px;
+	height: 90px;
+    bottom: calc(50% - 45px);
+    left: calc(50% - 45px);
 `;

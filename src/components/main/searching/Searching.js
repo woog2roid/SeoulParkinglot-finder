@@ -41,11 +41,10 @@ const InitiateSearch = () => {
 		};
 		
 		e.preventDefault();
-		makeUrl(e.target.alwaysfree, url);
-		makeUrl(e.target.nightfree, url);
-		makeUrl(e.target.satfree, url);
-		makeUrl(e.target.holidayfree, url);
-		url = url.slice(1, url.length);
+		url += `alwaysfree=${e.target.alwaysfree.checked}`;
+		url += `&nightfree=${e.target.nightfree.checked}`;
+		url += `&satfree=${e.target.satfree.checked}`;
+		url += `&holidayfree=${e.target.holidayfree.checked}`;
 		history.push('/seoul-parking-lot-finder/search?' + url);
 	};
 
