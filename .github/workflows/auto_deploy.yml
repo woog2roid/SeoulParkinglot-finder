@@ -7,7 +7,8 @@ on:
 env:
   REACT_APP_KAKAO_API_KEY: ${{secrets.REACT_APP_KAKAO_API_KEY}}
   REACT_APP_SEOUL_API_KEY: ${{secrets.REACT_APP_SEOUL_API_KEY}}
-
+  REACT_APP_DEV_API_DOMAIN: ${{REACT_APP_DEV_API_DOMAIN}}
+  
 jobs:
   build:
     runs-on: ubuntu-latest
