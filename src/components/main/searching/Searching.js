@@ -36,10 +36,6 @@ const InitiateSearch = () => {
 	
 	const onSubmit = (e) => {
 		let url = '';
-		const makeUrl = (condition) => {
-			url += `&${condition.name}=${condition.checked}`;
-		};
-		
 		e.preventDefault();
 		url += `alwaysfree=${e.target.alwaysfree.checked}`;
 		url += `&nightfree=${e.target.nightfree.checked}`;

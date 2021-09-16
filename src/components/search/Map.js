@@ -4,9 +4,8 @@ import { LoadingWrapper, LoadingMaps, Maps, Progress } from './Style';
 
 
 const Map = ({ loading }) => {
-	const { state } = useContext(ZoomLevelContext);
 	const map = useRef(null);
-
+	const { state } = useContext(ZoomLevelContext);
 	const circleOption = {
 		strokeWeight: 1,
 		strokeColor: '#007BFF',
@@ -27,7 +26,7 @@ const Map = ({ loading }) => {
 		circleOption.center = center;
 		circleOption.radius = state.radius;
 		new window.kakao.maps.Circle(circleOption).setMap(KakaoMap);
-	}, [state]);
+	}, [state, loading]);
 
 	if(loading) {
 		return (

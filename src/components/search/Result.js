@@ -33,6 +33,7 @@ const SearchResult = ({ location }) => {
 					`?alwaysfree=${always}&holidayfree=${holiday}&nightfree=${night}&satfree=${sat}&` +
 					`lat=${state.latitude}&lng=${state.longitude}`
 				);
+				console.log(response);
 				
 				setData(response);
 				setLoading(false);
