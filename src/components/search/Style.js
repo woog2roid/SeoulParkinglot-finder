@@ -86,6 +86,7 @@ export const Description = styled.div`
 /*LOADING*/
 export const LoadingWrapper = styled.div`
 	position: relative;
+	opacity: 0.8;
 	@media ${(props) => props.theme.mobile} {
 		height: 370px;
 	}
@@ -97,14 +98,12 @@ export const LoadingWrapper = styled.div`
 	}
 `;
 
-export const LoadingMaps = styled(Maps)`
-	opacity: 0.7;
-`;
-
 export const Progress = styled(Spinner)`
 	position: absolute;
 	width: 90px;
 	height: 90px;
     bottom: calc(50% - 45px);
     left: calc(50% - 45px);
+	z-index: 1;
+	opacity: 1;
 `;

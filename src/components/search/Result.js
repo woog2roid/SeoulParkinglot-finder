@@ -3,7 +3,7 @@ import MapOptionContext from '../../contexts/MapOptionContext';
 import qs from 'qs';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import { Wrapper, Main, Line, Buttons, Description } from './Style';
+import { Wrapper, Main, Line, Buttons, Description, LoadingWrapper, Progress} from './Style';
 import Map from './Map';
 
 const SearchResult = ({ location }) => {
@@ -59,7 +59,14 @@ const SearchResult = ({ location }) => {
 				검색결과
 			</Main>
 			<Line className="my-2" />
-			<Map loading={loading}/>
+			{
+				loading ?
+				<LoadingWrapper>
+					<Map loading={loading}/>
+					<Progress color="primary"/>
+				</LoadingWrapper> :
+				<Map loading={loading}/>
+			}
 			<div />
 			<Buttons outline color="primary" onClick={goMain}>
 				메인 페이지로 돌아가기
