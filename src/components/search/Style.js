@@ -10,23 +10,23 @@ export const Wrapper = styled.div`
 		margin-top: 5%;
 	}
 	@media ${(props) => props.theme.tablet} {
-        margin-top: 10%;
+		margin-top: 10%;
 	}
 	@media ${(props) => props.theme.desktop} {
-        margin-top: 30px;
+		margin-top: 30px;
 	}
 `;
 
 export const Main = styled.div`
 	margin-bottom: 2px;
 	@media ${(props) => props.theme.mobile} {
-    	font-size: 20px;  
+		font-size: 20px;
 	}
 	@media ${(props) => props.theme.tablet} {
 		font-size: 25px;
 	}
 	@media ${(props) => props.theme.desktop} {
-    	font-size: 30px;
+		font-size: 30px;
 	}
 `;
 
@@ -59,10 +59,10 @@ export const Buttons = styled(Button)`
 		width: 300px;
 	}
 	@media ${(props) => props.theme.tablet} {
-        width: 500px;
-    }
+		width: 500px;
+	}
 	@media ${(props) => props.theme.desktop} {
-        width: 600px;
+		width: 600px;
 	}
 `;
 
@@ -78,7 +78,7 @@ export const Description = styled.div`
 		width: 500px;
 	}
 	@media ${(props) => props.theme.desktop} {
-    	font-size: 16px;
+		font-size: 16px;
 		width: 600px;
 	}
 `;
@@ -102,8 +102,8 @@ export const Progress = styled(Spinner)`
 	position: absolute;
 	width: 90px;
 	height: 90px;
-    bottom: calc(50% - 45px);
-    left: calc(50% - 45px);
+	bottom: calc(50% - 45px);
+	left: calc(50% - 45px);
 	z-index: 1;
 	opacity: 1;
 `;

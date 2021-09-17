@@ -83,7 +83,7 @@ export const PopoverText = styled(PopoverBody)`
 		font-size: 14px;
 	}
 	@media ${(props) => props.theme.desktop} {
-		font-size: 14px;	
+		font-size: 14px;
 	}
 `;
 
@@ -91,28 +91,28 @@ export const CircleSubmit = styled.input`
 	display: inline-block;
 	color: ${(props) => props.theme.primary};
 	background-color: white;
-	border-color: ${(props) => props.theme.primary};;
+	border-color: ${(props) => props.theme.primary};
 	border-width: thin;
 	border-style: solid;
 	border-radius: 50%;
-	&:hover{
+	&:hover {
 		color: white;
-		background-color: ${(props) => props.theme.primary};;
+		background-color: ${(props) => props.theme.primary};
 	}
 	@media ${(props) => props.theme.mobile} {
-        width: 130px;
+		width: 130px;
 		height: 130px;
 		line-height: 110px;
 		font-size: 13px;
 	}
 	@media ${(props) => props.theme.tablet} {
-        width: 200px;
+		width: 200px;
 		height: 200px;
-		line-height: 180px;    
-		font-size:18px;
+		line-height: 180px;
+		font-size: 18px;
 	}
 	@media ${(props) => props.theme.desktop} {
-        width: 230px;
+		width: 230px;
 		height: 230px;
 		line-height: 210px;
 		font-size: 25px;

@@ -2,8 +2,7 @@ import React, { useContext, useRef, useEffect } from 'react';
 import ZoomLevelContext from '../../contexts/MapOptionContext';
 import { Maps } from './Style';
 
-
-const Map = ({ loading }) => {
+const Map = ({ loading, lat, lng }) => {
 	const map = useRef(null);
 	const { state } = useContext(ZoomLevelContext);
 	const circleOption = {
@@ -16,13 +15,13 @@ const Map = ({ loading }) => {
 	};
 
 	useEffect(() => {
-		const center = new window.kakao.maps.LatLng(state.latitude, state.longitude);
+		const center = new window.kakao.maps.LatLng(lat, lng);
 		const mapDrawingOptions = {
 			center: center,
 			level: state.level,
 		};
 		const KakaoMap = new window.kakao.maps.Map(map.current, mapDrawingOptions);
-			
+
 		circleOption.center = center;
 		circleOption.radius = state.radius;
 		new window.kakao.maps.Circle(circleOption).setMap(KakaoMap);
