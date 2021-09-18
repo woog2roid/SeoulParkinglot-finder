@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import qs from 'qs';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { Wrapper, Main, Line, Buttons, Description, LoadingWrapper, Progress } from './Style';
 import Map from './Map';
+import MapOptionContext from '../../contexts/MapOptionContext';
 
 const SearchResult = ({ location }) => {
+	const { state } = useContext(MapOptionContext);
 	const history = useHistory();
 
 	const [data, setData] = useState(null);
@@ -30,16 +32,18 @@ const SearchResult = ({ location }) => {
 					lng = query.lng;
 				setLat(lat);
 				setLng(lng);
-				/*production URL*/
-				//const response = await axios.get(`https://server.woog2roid.dev/blahblahblah`)
-				/*develop URL*/
-				const response = await axios.get(
+				
+				const requestUrl =
 					process.env.REACT_APP_DEV_API_DOMAIN +
-						`?alwaysfree=${always}&holidayfree=${holiday}&nightfree=${night}&satfree=${sat}&` +
-						`lat=${lat}&lng=${lng}`
-				);
-				//response 받고 난 후,
+					`?alwaysfree=${always}&holidayfree=${holiday}&nightfree=${night}&satfree=${sat}` +
+					`&lat=${lat}&lng=${lng}` +
+					`&radius=${state.radius}`;
+				/*develop URL*/
+				console.log(requestUrl);
+				const response = await axios.get(requestUrl);
 				console.log(response);
+
+				//response 받고 난 후,
 				setData(response);
 				setLoading(false);
 			} catch (e) {
@@ -47,7 +51,7 @@ const SearchResult = ({ location }) => {
 			}
 		};
 		fetchData();
-	}, []);
+	}, [state.radius]);
 
 	//메인화면으로 가는 버튼
 	const goMain = (e) => {
