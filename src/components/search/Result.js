@@ -20,6 +20,7 @@ const SearchResult = ({ location }) => {
 		const fetchData = async () => {
 			try {
 				setLoading(true);
+				
 				//query parsing
 				const query = qs.parse(location.search, {
 					ignoreQueryPrefix: true,
@@ -33,16 +34,14 @@ const SearchResult = ({ location }) => {
 				setLat(lat);
 				setLng(lng);
 				
+				//server에 요청
 				const requestUrl =
-					process.env.REACT_APP_DEV_API_DOMAIN +
+					process.env.REACT_APP_API_DOMAIN +
 					`?alwaysfree=${always}&holidayfree=${holiday}&nightfree=${night}&satfree=${sat}` +
 					`&lat=${lat}&lng=${lng}` +
 					`&radius=${state.radius}`;
-				/*develop URL*/
-				console.log(requestUrl);
 				const response = await axios.get(requestUrl);
-				console.log(response);
-
+				
 				//response 받고 난 후,
 				setData(response);
 				setLoading(false);
@@ -70,7 +69,7 @@ const SearchResult = ({ location }) => {
 					<Progress color="primary" />
 				</LoadingWrapper>
 			) : (
-				<Map loading={loading} lat={lat} lng={lng} />
+				<Map loading={loading} lat={lat} lng={lng} data={data} />
 			)}
 			<div />
 			<Buttons outline color="primary" onClick={goMain}>

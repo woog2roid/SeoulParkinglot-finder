@@ -38,7 +38,7 @@ const Map = ({ isActivated, toggleModal, toggleLocation }) => {
 				//1.marker를 표시하고,
 				//2.Map의 bound를 설정하며,
 				//3.marker를 클릭했을 때의 event를 모두 관리
-				function placesSearchCB(data, status, pagination) {
+				function placesSearchCB(data, status) {
 					console.log(status);
 					if (status === window.kakao.maps.services.Status.OK) {
 						let bounds = new window.kakao.maps.LatLngBounds();
