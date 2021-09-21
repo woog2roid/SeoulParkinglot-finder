@@ -6,7 +6,7 @@ import { Wrapper, FormGroup, Label, Help, PopoverText, CircleSubmit } from './St
 import Center from './modals/center/Center';
 
 const InitiateSearch = () => {
-	const { state } = useContext(MapOptionContext);
+	const { state, actions } = useContext(MapOptionContext);
 	const history = useHistory();
 
 	//HELP popover: 알아서 자동으로 닫히게
@@ -31,7 +31,15 @@ const InitiateSearch = () => {
 	const onClickedCtrChange = () => {
 		//modal 열기
 		if (!isChecked) setCenterModal(true);
-		if (isChecked) setIsChecked(false);
+		if (isChecked) {
+			setIsChecked(false);
+			navigator.geolocation.getCurrentPosition((position) => {
+				const lat = position.coords.latitude,
+				  lng = position.coords.longitude;
+				actions.setLatitude(lat);
+				actions.setLongitude(lng);
+			});
+		}
 	};
 
 	const onSubmit = (e) => {
