@@ -45,7 +45,7 @@ const InitiateSearch = () => {
 	const onSubmit = (e) => {
 		let url = '';
 		e.preventDefault();
-		url += `alwaysfree=${e.target.alwaysfree.checked}`;
+		url += `free=${e.target.free.checked}`;
 		url += `&nightfree=${e.target.nightfree.checked}`;
 		url += `&satfree=${e.target.satfree.checked}`;
 		url += `&holidayfree=${e.target.holidayfree.checked}`;
@@ -59,23 +59,23 @@ const InitiateSearch = () => {
 			<Wrapper onSubmit={onSubmit}>
 				<FormGroup>
 					<Label>
-						<Input type="checkbox" name="alwaysfree" />
-						무료 주차장
+						<Input type="checkbox" name="free" />
+						주간 무료운영
 					</Label>
 					<br />
 					<Label>
 						<Input type="checkbox" name="nightfree" />
-						야간 무료개장
+						야간 무료운영
 					</Label>
 					<br />
 					<Label>
 						<Input type="checkbox" name="satfree" />
-						토요일 무료개장
+						토요일 무료운영
 					</Label>
 					<br />
 					<Label>
 						<Input type="checkbox" name="holidayfree" />
-						공휴일 무료개장
+						공휴일 무료운영
 					</Label>
 					<br />
 					<Label>

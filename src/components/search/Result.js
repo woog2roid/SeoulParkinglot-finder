@@ -25,7 +25,7 @@ const SearchResult = ({ location }) => {
 				const query = qs.parse(location.search, {
 					ignoreQueryPrefix: true,
 				});
-				const always = query.alwaysfree,
+				const weekday = query.free,
 					holiday = query.holidayfree,
 					night = query.nightfree,
 					sat = query.satfree,
@@ -37,7 +37,7 @@ const SearchResult = ({ location }) => {
 				//server에 요청
 				const requestUrl =
 					process.env.REACT_APP_API_DOMAIN +
-					`?alwaysfree=${always}&holidayfree=${holiday}&nightfree=${night}&satfree=${sat}` +
+					`?free=${weekday}&holidayfree=${holiday}&nightfree=${night}&satfree=${sat}` +
 					`&lat=${lat}&lng=${lng}` +
 					`&radius=${state.radius}`;
 				const response = await axios.get(requestUrl);
