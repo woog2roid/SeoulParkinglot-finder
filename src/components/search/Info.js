@@ -4,22 +4,21 @@ const mobile = 320, tablet = 768, desktop = 1280;
 const wrapperStyle = `
 	text-align: left;
 	z-index: 1;
+	padding: 5% 5% 5% 5%;
 	${mobile < width && width < tablet ?
 	//MOBILE style
 	`
-		width: 230px;
-		padding: 1px;
+		width: 190px;
 	`
 	: width < desktop ?
 	//TABLET style
 	`
-		width: 350px;
+		width: 210px;
 	`
 	:
 	//DESKTOP style
 	`
-		width: 20vw;
-		padding: 6px;
+		width: 250px;
 	`}
 `;
 
@@ -100,7 +99,9 @@ const Info = (data) => {
 	wrapper.style.cssText = wrapperStyle;
 	
 	const name = document.createElement('div');
-	name.innerHTML =  data.PARKING_NAME;
+	let parking_name = data.PARKING_NAME;
+	if(parking_name.length > 10) parking_name = parking_name.substr(0, 10) + "...";
+	name.innerHTML =  parking_name;
 	name.style.cssText = titleStyle;
 	wrapper.appendChild(name);
 

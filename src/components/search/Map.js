@@ -27,10 +27,20 @@ const Map = ({ loading, lat, lng, data }) => {
 		circleOption.center = center;
 		circleOption.radius = state.radius;
 		new window.kakao.maps.Circle(circleOption).setMap(kakaoMap);
-
 		
-		//loading이 되고 나면, 서버에서 받은 data로 마커와 인포윈도우를 띄운다.
+		//loading이 되고 나면,
 		if (loading === false) {
+			//빨간 점으로 중앙 표시해주고,
+			const centerMarker = new window.kakao.maps.Polyline({
+				path: [center],
+				strokeWeight: 5,
+				strokeColor: 'red',
+				strokeOpacity: 0.7,
+				strokeStyle: 'solid'
+			});
+			centerMarker.setMap(kakaoMap);
+			
+			//서버에서 받은 data로 마커와 인포윈도우를 띄운다.
 			if (data) {
 				for (let i = 0; i < data.data.length; i = i + 1) {
 					//마커 생성 및 이벤트(Infowindow) 등록
