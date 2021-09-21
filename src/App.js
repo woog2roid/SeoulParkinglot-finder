@@ -7,6 +7,7 @@ import Search from './pages/Search';
 import { Wrapper } from './styles/AppStyle';
 import GlobalStyle from './styles/GlobalStyle';
 import { MapOptionProvider } from './contexts/MapOptionContext';
+import { SearchConditionProvider } from './contexts/SearchConditionContext';
 import { ThemeProvider } from 'styled-components';
 import Theme from './styles/Theme';
 
@@ -16,12 +17,14 @@ const App = () => {
 			<GlobalStyle />
 			<ThemeProvider theme={Theme}>
 			<MapOptionProvider>
+			<SearchConditionProvider>
 				<Switch>
 					<Route path="/seoul-parking-lot-finder/" component={Main} exact={true} />
 					<Route path="/seoul-parking-lot-finder/about/" component={About} />
 					<Route path="/seoul-parking-lot-finder/search/" component={Search} />
 					<Route component={NotFound} />
 				</Switch>
+			</SearchConditionProvider>
 			</MapOptionProvider>
 			</ThemeProvider>
 		</Wrapper>

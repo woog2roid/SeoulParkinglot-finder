@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import MapOptionContext from '../../../contexts/MapOptionContext';
+import SearchConditionContext from '../../../contexts/SearchConditionContext';
 import { useHistory } from 'react-router-dom';
 import { Input, Popover } from 'reactstrap';
 import { Wrapper, FormGroup, Label, Help, PopoverText, CircleSubmit } from './Style';
@@ -7,6 +8,7 @@ import Center from './modals/center/Center';
 
 const InitiateSearch = () => {
 	const { state, actions } = useContext(MapOptionContext);
+	const { searchState, searchActions } = useContext(SearchConditionContext);
 	const history = useHistory();
 
 	//HELP popover: 알아서 자동으로 닫히게
@@ -27,12 +29,11 @@ const InitiateSearch = () => {
 	const toggleModal = () => setCenterModal(!centerModal);
 
 	//특정 장소 기준 검색 기능이 눌렸는지 ㅇㅇ...
-	const [isChecked, setIsChecked] = useState(false);
 	const onClickedCtrChange = () => {
 		//modal 열기
-		if (!isChecked) setCenterModal(true);
-		if (isChecked) {
-			setIsChecked(false);
+		if (!searchState.customedCenter) setCenterModal(true);
+		else {
+			searchActions.setCustomedCenter(false);
 			navigator.geolocation.getCurrentPosition((position) => {
 				const lat = position.coords.latitude,
 				  lng = position.coords.longitude;
@@ -59,22 +60,42 @@ const InitiateSearch = () => {
 			<Wrapper onSubmit={onSubmit}>
 				<FormGroup>
 					<Label>
-						<Input type="checkbox" name="free" />
+						<Input 
+							type="checkbox"
+							name="free"
+							checked={searchState.free}
+							onChange={() => {searchActions.setFree(!searchState.free)}}
+						/>
 						주간 무료운영
 					</Label>
 					<br />
 					<Label>
-						<Input type="checkbox" name="nightfree" />
+						<Input 
+							type="checkbox"
+							name="nightfree" 
+							checked={searchState.nigthFree}
+							onChange={() => {searchActions.setNightFree(!searchState.nightFree)}}
+						/>
 						야간 무료운영
 					</Label>
 					<br />
 					<Label>
-						<Input type="checkbox" name="satfree" />
+						<Input 
+							type="checkbox" 
+							name="satfree" 
+							checked={searchState.satFree}
+							onChange={() => {searchActions.setSatFree(!searchState.satFree)}}
+						/>
 						토요일 무료운영
 					</Label>
 					<br />
 					<Label>
-						<Input type="checkbox" name="holidayfree" />
+						<Input 
+							type="checkbox" 
+							name="holidayfree" 
+							checked={searchState.holidayFree}
+							onChange={() => {searchActions.setHolidayFree(!searchState.holidayFree)}}
+						/>
 						공휴일 무료운영
 					</Label>
 					<br />
@@ -82,9 +103,8 @@ const InitiateSearch = () => {
 						<Input
 							id="PopoverLocation"
 							type="checkbox"
-							checked={isChecked}
-							onClick={onClickedCtrChange}
-							readOnly
+							checked={searchState.customedCenter}
+							onChange={onClickedCtrChange}
 						/>
 						탐색 기준 직접 설정
 					</Label>
@@ -115,7 +135,7 @@ const InitiateSearch = () => {
 				isOpen={centerModal}
 				toggleModal={toggleModal}
 				toggleLocation={toggleLocation}
-				isActivated={() => setIsChecked(true)}
+				isActivated={() => searchActions.setCustomedCenter(true)}
 			/>
 		</>
 	);

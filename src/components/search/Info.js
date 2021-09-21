@@ -95,31 +95,6 @@ const payStyle = `
 	`}
 `;
 
-const buttonStyle = `
-	border: none;
-	background-color: #007BFF;
-	color: white;
-	opacity: 0.8;
-	${mobile < width && width < tablet ?
-	//MOBILE style
-	`
-		font-size: 10px;
-		line-height: 13px;
-	`
-	: width < desktop ?
-	//TABLET style
-	`
-		font-size: 15px;
-		line-height: 18px;
-	`
-	:
-	//DESKTOP style
-	`
-		font-size: 16px;
-		line-height: 20px;
-	`}
-`;
-
 const Info = (data) => {
 	const wrapper = document.createElement('div');
 	wrapper.style.cssText = wrapperStyle;
@@ -134,7 +109,7 @@ const Info = (data) => {
 	address.style.cssText = addrStyle;
 	wrapper.appendChild(address);
 	
-	const isOpen = (data.WEEKDAY_END_TIME != "0000");
+	const isOpen = (data.WEEKDAY_END_TIME !== "0000");
 	const isOpenOnWeekend = (data.WEEKEND_END_TIME !== "0000");
 	const isOpenOnHoliday = (data.HOLIDAY_END_TIME !== "0000");
 	
