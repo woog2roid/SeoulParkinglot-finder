@@ -22,7 +22,7 @@ const Map = () => {
 		//레벨은 10으로 통일 후, radius만 변화시켜줄 예정
 		const mapDrawingOptions = {
 			center: center,
-			level: 10,
+			level: 8,
 		};
 		const KakaoMap = new window.kakao.maps.Map(map.current, mapDrawingOptions);		
 		circleOption.center = center;

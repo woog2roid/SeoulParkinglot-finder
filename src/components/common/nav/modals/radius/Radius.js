@@ -9,9 +9,9 @@ const Radius = ({ isOpen, toggle }) => {
 	const { actions } = useContext(MapOptionContext);
 
 	const radius = {
-		small: 5000,
-		standard: 8000,
-		big: 10000,
+		small: 500,
+		standard: 1000,
+		big: 3000,
 	};
 
 	const onClickSml = () => {
@@ -30,13 +30,13 @@ const Radius = ({ isOpen, toggle }) => {
 			<ModalBody>
 				<ButtonWrapper>
 					<Button outline color="primary" onClick={onClickSml}>
-						좁게(5km)
+						좁게(500m)
 					</Button>
 					<Button outline color="primary" onClick={onClickStd}>
-						표준(8km)
+						표준(1km)
 					</Button>
 					<Button outline color="primary" onClick={onClickBig}>
-						넓게(10km)
+						넓게(3km)
 					</Button>
 				</ButtonWrapper>
 				<Map />

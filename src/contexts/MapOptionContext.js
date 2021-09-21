@@ -2,8 +2,8 @@ import { createContext, useState, useEffect } from 'react';
 
 const MapOptionContext = createContext({
 	state: {
-		level: 6,
-		radius: 8000,
+		level: 5,
+		radius: 1000,
 		latitude: 0,
 		longitude: 0,
 		location: "", 
@@ -20,8 +20,8 @@ const MapOptionContext = createContext({
 export const MapOptionProvider = ({ children }) => {
 	/*상태 목록*/
 	//localStorage와 연동한다.
-	const [level, setLevel] = useState(localStorage.getItem('level') || 6);
-	const [radius, setRadius] = useState(localStorage.getItem('radius') || 8000);
+	const [level, setLevel] = useState(localStorage.getItem('level') || 5);
+	const [radius, setRadius] = useState(localStorage.getItem('radius') || 1000);
 	//처음 앱이 켜질 때, 현재위치를 받아간다.
 	const [latitude, setLatitude] = useState(0);
 	const [longitude, setLongitude] = useState(0);

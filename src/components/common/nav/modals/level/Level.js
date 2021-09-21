@@ -9,9 +9,9 @@ const Level = ({ isOpen, toggle }) => {
 	const { actions } = useContext(MapOptionContext);
 
 	const level = {
-		zoomIn: 5,
-		standard: 6,
-		zoomOut: 8,
+		zoomIn: 4,
+		standard: 5,
+		zoomOut: 6,
 	};
 
 	const onClickZoomIn = () => {
