@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import MapOptionContext from '../../../../../contexts/MapOptionContext';
+import MapOptionContext from '../../../contexts/MapOptionContext';
 import Map from './Map';
 import { Modal, ModalHeader, ModalBody, Button } from 'reactstrap';
 import { ButtonWrapper } from '../styles/ButtonGroupStyle';
-import '../../../../../styles/modal/modal.css';
+import '../styles/modal.css';
 
-const Level = ({ isOpen, toggle }) => {
+const Zoom = ({ isOpen, toggle }) => {
 	const { actions } = useContext(MapOptionContext);
 
 	const level = {
@@ -45,4 +45,4 @@ const Level = ({ isOpen, toggle }) => {
 	);
 };
 
-export default Level;
+export default Zoom;

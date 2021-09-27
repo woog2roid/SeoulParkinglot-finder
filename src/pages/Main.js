@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../components/common/nav/Navigation';
+import Nav from '../components/common/navigation/Navigation';
 import Footer from '../components/common/footer/Footer';
 import MainComponent from '../components/main/MainComponent';
 import {
@@ -13,7 +13,7 @@ const Main = () => {
 	return (
 		<Wrapper>
 			<NavWrapper>
-				<NavBar />
+				<Nav />
 			</NavWrapper>
 			<ContentsWrapper>
 				<MainComponent />

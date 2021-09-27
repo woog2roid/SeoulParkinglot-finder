@@ -1,11 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { Button } from 'reactstrap';
-import { Wrapper, Title, Description } from './Style';
+import { WrapperUtil } from '../../styles/FixedContents';
+
+const Wrapper = styled(WrapperUtil)`
+	height: 20%;
+`;
+
+const Title = styled.div`
+	${(props) => props.theme.xxl}
+`;
+
+const Description = styled.div`
+	${(props) => props.theme.m}
+`;
 
 const Error = () => {
 	const history = useHistory();
-
 	const goBack = (e) => {
 		e.preventDefault();
 		history.goBack();

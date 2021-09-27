@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../components/common/nav/Navigation';
+import Nav from '../components/common/navigation/Navigation';
 import Result from '../components/search/Result';
 import Footer from '../components/common/footer/Footer';
 import {
@@ -13,7 +13,7 @@ const Search = ({ location }) => {
 	return (
 		<Wrapper>
 			<NavWrapper>
-				<NavBar />
+				<Nav />
 			</NavWrapper>
 			<ContentsWrapper>
 				<Result location={location}/>

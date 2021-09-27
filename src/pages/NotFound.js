@@ -1,7 +1,7 @@
 import React from 'react';
-import NavBar from '../components/common/nav/Navigation';
+import Nav from '../components/common/navigation/Navigation';
 import Footer from '../components/common/footer/Footer';
-import Error from '../components/404/Error';
+import Error from '../components/404/404';
 import {
 	Wrapper,
 	NavWrapper,
@@ -13,7 +13,7 @@ const NotFound = () => {
 	return (
 		<Wrapper>
 			<NavWrapper>
-				<NavBar />
+				<Nav />
 			</NavWrapper>
 			<ContentsWrapper>
 				<Error />

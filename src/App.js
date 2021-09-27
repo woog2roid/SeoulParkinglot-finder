@@ -1,19 +1,20 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+//pages
 import About from './pages/About';
 import Main from './pages/Main';
 import NotFound from './pages/NotFound';
 import Search from './pages/Search';
-import { Wrapper } from './styles/AppStyle';
+//global settings, state etc...
 import GlobalStyle from './styles/GlobalStyle';
+import Theme from './styles/Theme';
 import { MapOptionProvider } from './contexts/MapOptionContext';
 import { SearchConditionProvider } from './contexts/SearchConditionContext';
 import { ThemeProvider } from 'styled-components';
-import Theme from './styles/Theme';
 
 const App = () => {
 	return (
-		<Wrapper>
+		<>
 			<GlobalStyle />
 			<ThemeProvider theme={Theme}>
 			<MapOptionProvider>
@@ -27,7 +28,7 @@ const App = () => {
 			</SearchConditionProvider>
 			</MapOptionProvider>
 			</ThemeProvider>
-		</Wrapper>
+		</>
 	);
 };
 

@@ -4,7 +4,7 @@ import SearchConditionContext from '../../../contexts/SearchConditionContext';
 import { useHistory } from 'react-router-dom';
 import { Input, Popover } from 'reactstrap';
 import { Wrapper, FormGroup, Label, Help, PopoverText, CircleSubmit } from './Style';
-import Center from './modals/center/Center';
+import Center from '../../modal/center/Center';
 
 const InitiateSearch = () => {
 	const { state, actions } = useContext(MapOptionContext);

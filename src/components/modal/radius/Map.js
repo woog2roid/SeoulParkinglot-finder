@@ -1,7 +1,10 @@
 import React, { useContext, useRef, useEffect } from 'react';
-import MapOptionContext from '../../../../../contexts/MapOptionContext';
-import { Maps } from '../../../../../styles/modal/MapStyle';
+import MapOptionContext from '../../../contexts/MapOptionContext';
+import { Maps } from '../styles/MapStyle';
 
+/*
+	::레벨은 10으로 통일 후, state.radius로만 변화시켜줌 ::
+*/
 
 const Map = () => {
 	const { state } = useContext(MapOptionContext);
@@ -19,7 +22,6 @@ const Map = () => {
 	
 	useEffect(() => {
 		const center = new window.kakao.maps.LatLng(state.latitude, state.longitude);
-		//레벨은 10으로 통일 후, radius만 변화시켜줄 예정
 		const mapDrawingOptions = {
 			center: center,
 			level: 8,

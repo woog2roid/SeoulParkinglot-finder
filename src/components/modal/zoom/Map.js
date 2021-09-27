@@ -1,6 +1,10 @@
 import React, { useContext, useRef, useEffect } from 'react';
-import MapOptionContext from '../../../../../contexts/MapOptionContext';
-import { Maps } from '../../../../../styles/modal/MapStyle';
+import MapOptionContext from '../../../contexts/MapOptionContext';
+import { Maps } from '../styles/MapStyle';
+
+/*
+	::state.level로만 변화시켜줄 예정, radius는 굳이 그리지 않음::
+*/
 
 const Map = () => {
 	const { state } = useContext(MapOptionContext);

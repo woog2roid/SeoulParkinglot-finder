@@ -1,8 +1,29 @@
 import React, { useContext, useRef, useEffect, useState } from 'react';
-import MapOptionContext from '../../../../../contexts/MapOptionContext';
-import { Maps } from '../../../../../styles/modal/MapStyle';
-import { Input, Wrapper } from './Style';
+import styled from 'styled-components';
+import MapOptionContext from '../../../contexts/MapOptionContext';
+import { Maps } from '../styles/MapStyle';
 import Info from './Info';
+
+const Input = styled.input`
+	border: 2px solid ${(props) => props.theme.primary};
+
+	@media ${(props) => props.theme.mobile} {
+		width: 280px;
+		margin-bottom: 10px;
+	}
+	@media ${(props) => props.theme.tablet} {
+		width: 500px;
+		margin-bottom: 10px;
+	}
+	@media ${(props) => props.theme.desktop} {
+		width: 600px;
+		margin-bottom: 10px;
+	}
+
+	&:focus {
+		outline: none;
+	}
+`;
 
 const Map = ({ isActivated, toggleModal, toggleLocation }) => {
 	const { state, actions } = useContext(MapOptionContext);
@@ -74,14 +95,14 @@ const Map = ({ isActivated, toggleModal, toggleLocation }) => {
 	}, [keyword]);
 
 	return (
-		<div>
+		<>
 			<form onSubmit={onSubmit}>
 				<Input name="input" autoComplete="off" placeholder="키워드로 검색해보세요" />
 			</form>
-			<Wrapper>
+			<div>
 				<Maps ref={map} />
-			</Wrapper>
-		</div>
+			</div>
+		</>
 	);
 };
 

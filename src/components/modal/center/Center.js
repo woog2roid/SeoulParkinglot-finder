@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import Map from './Map';
-import '../../../../../styles/modal/modal.css';
+import '../styles/modal.css';
 
 const Center = ({ isOpen, toggleModal, toggleLocation, isActivated }) => {
 	return (
