@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Maps = styled.div`
+export const MapContainer = styled.div`
 	display: inline-block;
 	@media ${(props) => props.theme.mobile} {
 		width: 280px;

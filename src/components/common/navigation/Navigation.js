@@ -32,7 +32,7 @@ const Wrapper = styled.div`
 `;
 
 const Navigation = () => {
-	const { state } = useContext(MapOptionContext);
+	const { mapState } = useContext(MapOptionContext);
 
 	const [isCollapseOpen, setIsCollapseOpen] = useState(false);
 	const toggleHamburger = () => setIsCollapseOpen(!isCollapseOpen);
@@ -40,13 +40,13 @@ const Navigation = () => {
 	//toggleButton을 눌러 Modal이 닫힐 때, localStorage와 연동
 	const [isZoomOpen, setIsZoomOpen] = useState(false);
 	const toggleZoom = () => {
-		if (isZoomOpen) localStorage.setItem('level', state.level);
+		if (isZoomOpen) localStorage.setItem('level', mapState.level);
 		setIsZoomOpen(!isZoomOpen);
 	};
 
 	const [isRadiusOpen, setIsRadiusOpen] = useState(false);
 	const toggleRadius = () => {
-		if (isRadiusOpen) localStorage.setItem('radius', state.radius);
+		if (isRadiusOpen) localStorage.setItem('radius', mapState.radius);
 		setIsRadiusOpen(!isRadiusOpen);
 	};
 

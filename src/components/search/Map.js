@@ -1,11 +1,30 @@
 import React, { useContext, useRef, useEffect } from 'react';
+import styled from 'styled-components';
 import ZoomLevelContext from '../../contexts/MapOptionContext';
-import { Maps } from './Style';
 import Info from './Info';
+
+const MapContainer = styled.div`
+	display: inline-block;
+	@media ${(props) => props.theme.mobile} {
+		width: 90%;
+		height: 360px;
+		margin-bottom: 10px;
+	}
+	@media ${(props) => props.theme.tablet} {
+		width: 80%;
+		height: 600px;
+		margin-bottom: 15px;
+	}
+	@media ${(props) => props.theme.desktop} {
+		width: 60%;
+		height: 720px;
+		margin-bottom: 20px;
+	}
+`;
 
 const Map = ({ loading, lat, lng, data }) => {
 	const map = useRef(null);
-	const { state } = useContext(ZoomLevelContext);
+	const { mapState } = useContext(ZoomLevelContext);
 
 	const circleOption = {
 		strokeWeight: 1,
@@ -13,19 +32,19 @@ const Map = ({ loading, lat, lng, data }) => {
 		strokeOpacity: 0.1,
 		strokeStyle: 'solid',
 		fillColor: '#007BFF',
-		fillOpacity: 0.1,
+		fillOpacity: 0.2,
 	};
 
 	useEffect(() => {
 		const center = new window.kakao.maps.LatLng(lat, lng);
 		const mapDrawingOptions = {
 			center: center,
-			level: state.level,
+			level: mapState.level,
 		};
 		const kakaoMap = new window.kakao.maps.Map(map.current, mapDrawingOptions);
 
 		circleOption.center = center;
-		circleOption.radius = state.radius;
+		circleOption.radius = mapState.radius;
 		new window.kakao.maps.Circle(circleOption).setMap(kakaoMap);
 		
 		//loading이 되고 나면,
@@ -64,14 +83,13 @@ const Map = ({ loading, lat, lng, data }) => {
 		};
 		const infowindow = new window.kakao.maps.InfoWindow({ zIndex: 1, removable: true });
 		function displayInfowindow(marker, data) {
-			infowindow.close();
 			let info = Info(data);
 			infowindow.setContent(info);
 			infowindow.open(kakaoMap, marker);
 		};
-	}, [state, loading]);
+	}, [mapState, loading]);
 
-	return <Maps ref={map} />;
+	return <MapContainer ref={map} />;
 };
 
 export default Map;

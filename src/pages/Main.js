@@ -1,7 +1,7 @@
 import React from 'react';
 import Nav from '../components/common/navigation/Navigation';
 import Footer from '../components/common/footer/Footer';
-import MainComponent from '../components/main/MainComponent';
+import Contents from '../components/main/Main';
 import {
 	Wrapper,
 	NavWrapper,
@@ -16,7 +16,7 @@ const Main = () => {
 				<Nav />
 			</NavWrapper>
 			<ContentsWrapper>
-				<MainComponent />
+				<Contents />
 			</ContentsWrapper>
 			<FooterWrapper>
 				<Footer />

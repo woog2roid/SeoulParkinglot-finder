@@ -37,8 +37,8 @@ export const MapOptionProvider = ({ children }) => {
 	const [location, setLocation] = useState();
 	
 	const value = {
-		state: { level, radius, latitude, longitude, location },
-		actions: { setLevel, setRadius, setLatitude, setLongitude, setLocation }
+		mapState: { level, radius, latitude, longitude, location },
+		mapActions: { setLevel, setRadius, setLatitude, setLongitude, setLocation }
 	};
 	
 	return (

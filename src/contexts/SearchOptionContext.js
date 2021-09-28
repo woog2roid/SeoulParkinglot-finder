@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react';
 
-const SearchConditionContext = createContext({
+const SearchOptionContext = createContext({
 	state: {
 		free: false,
 		nightFree: false,
@@ -17,7 +17,7 @@ const SearchConditionContext = createContext({
 	},
 });
 
-export const SearchConditionProvider = ({ children }) => {
+export const SearchOptionProvider = ({ children }) => {
 	/*상태 목록*/
 	const [free, setFree] = useState(false);
 	const [nightFree, setNightFree] = useState(false);
@@ -31,12 +31,12 @@ export const SearchConditionProvider = ({ children }) => {
 	};
 	
 	return (
-		<SearchConditionContext.Provider value={value}>
+		<SearchOptionContext.Provider value={value}>
 			{children}
-		</SearchConditionContext.Provider>
+		</SearchOptionContext.Provider>
 	);
 };
 
-export const SearchConditionConsumer = SearchConditionContext.Consumer;
+export const SearchOptionConsumer = SearchOptionContext.Consumer;
 
-export default SearchConditionContext;
+export default SearchOptionContext;

@@ -1,8 +1,20 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Carousel, CarouselItem, CarouselControl, CarouselIndicators } from 'reactstrap';
-import { Wrapper } from './Style';
 import './carousel.css';
+
+const Wrapper = styled.div`
+    display: block;
+	margin: 0px auto;
+    width: 80%;
+	@media ${(props) => props.theme.tablet} {
+        width: 90%;
+	}
+	@media ${(props) => props.theme.desktop} {
+		width: 55%;
+	}
+`;
 
 const items = [
 	{
@@ -39,6 +51,7 @@ const Slides = (props) => {
 		setActiveIndex(newIndex);
 	};
 
+	//item의 HTML tag에 따라서 slides를 return해줌
 	const slides = items.map((item) => {
 		if (item.type === 'link') {
 			return (

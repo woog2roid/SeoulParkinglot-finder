@@ -1,13 +1,70 @@
 import React, { useEffect, useState, useContext } from 'react';
+import styled from 'styled-components';
+import { Button, Spinner } from 'reactstrap';
 import qs from 'qs';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import { Wrapper, Main, Line, Buttons, Description, LoadingWrapper, Progress } from './Style';
 import Map from './Map';
 import MapOptionContext from '../../contexts/MapOptionContext';
 
+const Wrapper = styled.div`
+	text-align: center;
+	@media ${(props) => props.theme.mobile} {
+		margin-top: 5%;
+	}
+	@media ${(props) => props.theme.tablet} {
+		margin-top: 10%;
+	}
+	@media ${(props) => props.theme.desktop} {
+		margin-top: 30px;
+	}
+`;
+
+const Main = styled.div`
+	margin-bottom: 2px;
+	${(props) => props.theme.xl}
+`;
+
+const Line = styled.hr`
+	background-color: black;
+	opacity: 0.25;
+`;
+
+const Buttons = styled(Button)`
+	@media ${(props) => props.theme.mobile} {
+		width: 300px;
+	}
+	@media ${(props) => props.theme.tablet} {
+		width: 500px;
+	}
+	@media ${(props) => props.theme.desktop} {
+		width: 600px;
+	}
+`;
+
+const Description = styled.div`
+	text-align: center;
+	display: inline-block;
+	${(props) => props.theme.s}
+`;
+
+const LoadingWrapper = styled.div`
+	position: relative;
+	opacity: 0.8;
+`;
+
+const Progress = styled(Spinner)`
+	position: absolute;
+	width: 90px;
+	height: 90px;
+	bottom: calc(50% - 45px);
+	left: calc(50% - 45px);
+	z-index: 1;
+	opacity: 1;
+`;
+
 const SearchResult = ({ location }) => {
-	const { state } = useContext(MapOptionContext);
+	const { mapState } = useContext(MapOptionContext);
 	const history = useHistory();
 
 	const [data, setData] = useState(null);
@@ -39,25 +96,25 @@ const SearchResult = ({ location }) => {
 					process.env.REACT_APP_API_DOMAIN +
 					`?free=${weekday}&holidayfree=${holiday}&nightfree=${night}&satfree=${sat}` +
 					`&lat=${lat}&lng=${lng}` +
-					`&radius=${state.radius}`;
+					`&radius=${mapState.radius}`;
 				const response = await axios.get(requestUrl);
 				
 				//response 받고 난 후,
 				setData(response);
 				setLoading(false);
 			} catch (e) {
-				//console.log(e);
+				console.log(e);
 			}
 		};
 		fetchData();
-	}, [state.radius]);
+	}, [mapState.radius]);
 
 	//메인화면으로 가는 버튼
 	const goMain = (e) => {
 		e.preventDefault();
 		history.push('/seoul-parking-lot-finder');
 	};
-
+	
 	return (
 		<Wrapper>
 			<Line className="my-2" />

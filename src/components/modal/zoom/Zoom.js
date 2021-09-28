@@ -6,7 +6,7 @@ import { ButtonWrapper } from '../styles/ButtonGroupStyle';
 import '../styles/modal.css';
 
 const Zoom = ({ isOpen, toggle }) => {
-	const { actions } = useContext(MapOptionContext);
+	const { mapActions } = useContext(MapOptionContext);
 
 	const level = {
 		zoomIn: 4,
@@ -15,13 +15,13 @@ const Zoom = ({ isOpen, toggle }) => {
 	};
 
 	const onClickZoomIn = () => {
-		actions.setLevel(level.zoomIn);
+		mapActions.setLevel(level.zoomIn);
 	};
 	const onClickStd = () => {
-		actions.setLevel(level.standard);
+		mapActions.setLevel(level.standard);
 	};
 	const onClickZoomOut = () => {
-		actions.setLevel(level.zoomOut);
+		mapActions.setLevel(level.zoomOut);
 	};
 
 	return (

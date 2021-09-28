@@ -1,14 +1,14 @@
 import React, { useState, useContext } from 'react';
 import MapOptionContext from '../../../contexts/MapOptionContext';
-import SearchConditionContext from '../../../contexts/SearchConditionContext';
+import SearchOptionContext from '../../../contexts/SearchOptionContext';
 import { useHistory } from 'react-router-dom';
 import { Input, Popover } from 'reactstrap';
 import { Wrapper, FormGroup, Label, Help, PopoverText, CircleSubmit } from './Style';
 import Center from '../../modal/center/Center';
 
 const InitiateSearch = () => {
-	const { state, actions } = useContext(MapOptionContext);
-	const { searchState, searchActions } = useContext(SearchConditionContext);
+	const { mapState, mapActions } = useContext(MapOptionContext);
+	const { searchState, searchActions } = useContext(SearchOptionContext);
 	const history = useHistory();
 
 	//HELP popover: 알아서 자동으로 닫히게
@@ -37,8 +37,8 @@ const InitiateSearch = () => {
 			navigator.geolocation.getCurrentPosition((position) => {
 				const lat = position.coords.latitude,
 				  lng = position.coords.longitude;
-				actions.setLatitude(lat);
-				actions.setLongitude(lng);
+				mapActions.setLatitude(lat);
+				mapActions.setLongitude(lng);
 			});
 		}
 	};
@@ -50,8 +50,8 @@ const InitiateSearch = () => {
 		url += `&nightfree=${e.target.nightfree.checked}`;
 		url += `&satfree=${e.target.satfree.checked}`;
 		url += `&holidayfree=${e.target.holidayfree.checked}`;
-		url += `&lat=${state.latitude}`;
-		url += `&lng=${state.longitude}`;
+		url += `&lat=${mapState.latitude}`;
+		url += `&lng=${mapState.longitude}`;
 		history.push('/seoul-parking-lot-finder/search?' + url);
 	};
 
@@ -60,52 +60,36 @@ const InitiateSearch = () => {
 			<Wrapper onSubmit={onSubmit}>
 				<FormGroup>
 					<Label>
-						<Input 
-							type="checkbox"
-							name="free"
-							checked={searchState.free}
-							onChange={() => {searchActions.setFree(!searchState.free)}}
-						/>
+						<Input type="checkbox" name="free" checked={searchState.free}
+							onChange={() => {searchActions.setFree(!searchState.free)}} />
 						주간 무료운영
 					</Label>
 					<br />
 					<Label>
 						<Input 
-							type="checkbox"
-							name="nightfree" 
-							checked={searchState.nigthFree}
-							onChange={() => {searchActions.setNightFree(!searchState.nightFree)}}
-						/>
+							type="checkbox" name="nightfree" checked={searchState.nigthFree}
+							onChange={() => {searchActions.setNightFree(!searchState.nightFree)}} />
 						야간 무료운영
 					</Label>
 					<br />
 					<Label>
 						<Input 
-							type="checkbox" 
-							name="satfree" 
-							checked={searchState.satFree}
-							onChange={() => {searchActions.setSatFree(!searchState.satFree)}}
-						/>
+							type="checkbox" name="satfree" checked={searchState.satFree}
+							onChange={() => {searchActions.setSatFree(!searchState.satFree)}} />
 						토요일 무료운영
 					</Label>
 					<br />
 					<Label>
 						<Input 
-							type="checkbox" 
-							name="holidayfree" 
-							checked={searchState.holidayFree}
-							onChange={() => {searchActions.setHolidayFree(!searchState.holidayFree)}}
-						/>
+							type="checkbox" name="holidayfree" checked={searchState.holidayFree}
+							onChange={() => {searchActions.setHolidayFree(!searchState.holidayFree)}} />
 						공휴일 무료운영
 					</Label>
 					<br />
 					<Label>
 						<Input
-							id="PopoverLocation"
-							type="checkbox"
-							checked={searchState.customedCenter}
-							onChange={onClickedCtrChange}
-						/>
+							id="PopoverLocation" type="checkbox" checked={searchState.customedCenter}
+							onChange={onClickedCtrChange} />
 						탐색 기준 직접 설정
 					</Label>
 					<Help id="PopoverHelp">?</Help>
@@ -124,7 +108,7 @@ const InitiateSearch = () => {
 					{/*위치 팝오버(Location Popover)*/}
 					<Popover placement="bottom" isOpen={locationOpen} target="PopoverLocation">
 						<PopoverText>
-							탐색 기준(지도의 중앙)이 "{state.location}"으로 설정되었습니다.
+							탐색 기준(지도의 중앙)이 "{mapState.location}"으로 설정되었습니다.
 						</PopoverText>
 					</Popover>
 				</FormGroup>

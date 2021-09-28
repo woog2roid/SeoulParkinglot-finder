@@ -6,7 +6,7 @@ import { ButtonWrapper } from '../styles/ButtonGroupStyle';
 import '../styles/modal.css';
 
 const Radius = ({ isOpen, toggle }) => {
-	const { actions } = useContext(MapOptionContext);
+	const { mapActions } = useContext(MapOptionContext);
 
 	const radius = {
 		small: 500,
@@ -15,13 +15,13 @@ const Radius = ({ isOpen, toggle }) => {
 	};
 
 	const onClickSml = () => {
-		actions.setRadius(radius.small);
+		mapActions.setRadius(radius.small);
 	};
 	const onClickStd = () => {
-		actions.setRadius(radius.standard);
+		mapActions.setRadius(radius.standard);
 	};
 	const onClickBig = () => {
-		actions.setRadius(radius.big);
+		mapActions.setRadius(radius.big);
 	};
 
 	return (

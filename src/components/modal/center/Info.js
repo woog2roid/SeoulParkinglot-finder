@@ -65,7 +65,8 @@ const buttonStyle = `
 	`}
 `;
 
-const Info = (title) => {
+const Info = (data, onClick) => {
+	let title = data.place_name;
 	if(title.length > 10) title = title.substr(0, 10) + "...";
 
 	let wrapper = document.createElement('div');
@@ -80,7 +81,9 @@ const Info = (title) => {
 	button.innerHTML = '여기로 설정';
 	button.style.cssText = buttonStyle;
 	wrapper.appendChild(button);
-
+	button.onclick = function () {
+		onClick(data);
+	}
 	return wrapper;
 };
 

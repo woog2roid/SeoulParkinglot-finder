@@ -1,26 +1,26 @@
 import React, { useContext, useRef, useEffect } from 'react';
 import MapOptionContext from '../../../contexts/MapOptionContext';
-import { Maps } from '../styles/MapStyle';
+import { MapContainer } from '../styles/MapStyle';
 
 /*
 	::state.level로만 변화시켜줄 예정, radius는 굳이 그리지 않음::
 */
 
 const Map = () => {
-	const { state } = useContext(MapOptionContext);
+	const { mapState } = useContext(MapOptionContext);
 	const map = useRef(null);
 	
 	useEffect(() => {
-		const center = new window.kakao.maps.LatLng(state.latitude, state.longitude);
+		const center = new window.kakao.maps.LatLng(mapState.latitude, mapState.longitude);
 		const options = {
 			center: center,
-			level: state.level,
+			level: mapState.level,
 		};
 		new window.kakao.maps.Map(map.current, options);
-	}, [state]);
+	}, [mapState]);
 	
 	return (
-		<Maps ref={map} />
+		<MapContainer ref={map} />
 	);
 };
 

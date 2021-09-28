@@ -9,7 +9,7 @@ import Search from './pages/Search';
 import GlobalStyle from './styles/GlobalStyle';
 import Theme from './styles/Theme';
 import { MapOptionProvider } from './contexts/MapOptionContext';
-import { SearchConditionProvider } from './contexts/SearchConditionContext';
+import { SearchOptionProvider } from './contexts/SearchOptionContext';
 import { ThemeProvider } from 'styled-components';
 
 const App = () => {
@@ -18,14 +18,14 @@ const App = () => {
 			<GlobalStyle />
 			<ThemeProvider theme={Theme}>
 			<MapOptionProvider>
-			<SearchConditionProvider>
+			<SearchOptionProvider>
 				<Switch>
 					<Route path="/seoul-parking-lot-finder/" component={Main} exact={true} />
 					<Route path="/seoul-parking-lot-finder/about/" component={About} />
 					<Route path="/seoul-parking-lot-finder/search/" component={Search} />
 					<Route component={NotFound} />
 				</Switch>
-			</SearchConditionProvider>
+			</SearchOptionProvider>
 			</MapOptionProvider>
 			</ThemeProvider>
 		</>
