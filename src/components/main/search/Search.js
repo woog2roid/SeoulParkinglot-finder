@@ -14,7 +14,7 @@ import {
 } from './SearchForm';
 import SearchButton from './SearchButton';
 import CenterModal from '../../modal/center/Center';
-import { LocationPopover, CenterHelpPopover } from './SearchPopover';
+import { FreeHelpPopover, LocationPopover, CenterHelpPopover } from './SearchPopover';
 
 const Wrapper = styled.form`
 	width: 100%;
@@ -121,12 +121,17 @@ const Search = () => {
 			{/*Form*/}
 			<Wrapper onSubmit={onSubmit}>
 				<FormGroup>
-					<IsFree /><br />
-					<IsFreeAtNight /><br />
-					<IsFreeAtSaturday /><br />
-					<IsFreeAtHoliday /><br />
-					<IsCenterSet onChange={onChangeCenterForm} />
-					<Help id="PopoverHelp">?</Help>
+					<IsFree />
+					<Help id="FreeHelpPopover">?</Help>
+					<br />
+					<IsFreeAtNight />
+					<br />
+					<IsFreeAtSaturday />
+					<br />
+					<IsFreeAtHoliday />
+					<br />
+					<IsCenterSet popover="LocationPopover" onChange={onChangeCenterForm} />
+					<Help id="CenterHelpPopover">?</Help>
 				</FormGroup>
 				<SearchButton />
 			</Wrapper>
@@ -139,6 +144,7 @@ const Search = () => {
 				openLocationPopover={openLocationPopover}
 				setCenterConditionTrue={() => searchActions.setCustomedCenter(true)}
 			/>
+			<FreeHelpPopover />
 			<LocationPopover isOpen={isLocationPopoverOpen}/>
 			<CenterHelpPopover />
 		</>

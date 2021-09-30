@@ -1,8 +1,6 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Input } from 'reactstrap';
-import { useHistory } from 'react-router-dom';
-import MapOptionContext from '../../../contexts/MapOptionContext';
 import SearchOptionContext from '../../../contexts/SearchOptionContext';
 
 const Label = styled.label`
@@ -55,8 +53,9 @@ export const IsFree = () => {
 export const IsFreeAtNight = () => {
 	const { searchState, searchActions } = useContext(SearchOptionContext);
 	return (
-		<Label>
+		<Label className="text-muted">
 			<InputBox
+				disabled
 				type="checkbox"
 				name="nightfree"
 				checked={searchState.nigthFree}
@@ -103,12 +102,12 @@ export const IsFreeAtHoliday = () => {
 	);
 };
 
-export const IsCenterSet = ({ onChange }) => {
+export const IsCenterSet = ({ popover, onChange }) => {
 	const { searchState } = useContext(SearchOptionContext);
 	return (
 		<Label>
 			<InputBox
-				id="PopoverLocation"
+				id={popover} 
 				type="checkbox"
 				checked={searchState.customedCenter}
 				onChange={onChange}
