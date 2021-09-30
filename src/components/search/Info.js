@@ -8,17 +8,17 @@ const wrapperStyle = `
 	${mobile < width && width < tablet ?
 	//MOBILE style
 	`
-		width: 190px;
+		width: 200px;
 	`
 	: width < desktop ?
 	//TABLET style
 	`
-		width: 210px;
+		width: 240px;
 	`
 	:
 	//DESKTOP style
 	`
-		width: 250px;
+		width: 280px;
 	`}
 `;
 
@@ -31,12 +31,12 @@ const titleStyle = `
 	: width < desktop ?
 	//TABLET style
 	`
-		font-size: 18px;
+		font-size: 15px;
 	`
 	:
 	//DESKTOP style
 	`
-		font-size: 20px;
+		font-size: 18px;
 	`}
 `;
 
@@ -94,13 +94,31 @@ const payStyle = `
 	`}
 `;
 
+const ratesStyle = `
+	${mobile < width && width < tablet ?
+	//MOBILE style
+	`
+		font-size: 8px;
+	`
+	: width < desktop ?
+	//TABLET style
+	`
+		font-size: 11px;
+	`
+	:
+	//DESKTOP style
+	`
+		font-size: 13px;
+	`}
+`;
+
 const Info = (data) => {
 	const wrapper = document.createElement('div');
 	wrapper.style.cssText = wrapperStyle;
 	
 	const name = document.createElement('div');
 	let parking_name = data.PARKING_NAME;
-	if(parking_name.length > 10) parking_name = parking_name.substr(0, 10) + "...";
+	if(parking_name.length > 14) parking_name = parking_name.substr(0, 14) + "...";
 	name.innerHTML =  parking_name;
 	name.style.cssText = titleStyle;
 	wrapper.appendChild(name);
@@ -115,10 +133,15 @@ const Info = (data) => {
 	const isOpenOnHoliday = (data.HOLIDAY_END_TIME !== "0000");
 	
 	const time = document.createElement('div');
-	time.innerHTML = 
-		`평일: ${isOpen ? `${data.WEEKDAY_BEGIN_TIME}~${data.WEEKDAY_END_TIME}</br>` : `운영 안함</br>`}` + 
-		`주말: ${isOpenOnWeekend ? `${data.WEEKEND_BEGIN_TIME}~${data.WEEKEND_END_TIME}</br>` : `운영 안함</br>`}` +
-		`공휴일: ${isOpenOnHoliday ? `${data.HOLIDAY_BEGIN_TIME}~${data.HOLIDAY_END_TIME}` : `운영 안함`}`;
+	if(isOpen || isOpenOnWeekend || isOpenOnHoliday) {
+		time.innerHTML = 
+			`평일: ${isOpen ? `${data.WEEKDAY_BEGIN_TIME}~${data.WEEKDAY_END_TIME}</br>` : `운영 안함</br>`}` + 
+			`주말: ${isOpenOnWeekend ? `${data.WEEKEND_BEGIN_TIME}~${data.WEEKEND_END_TIME}</br>` : `운영 안함</br>`}` +
+			`공휴일: ${isOpenOnHoliday ? `${data.HOLIDAY_BEGIN_TIME}~${data.HOLIDAY_END_TIME}` : `운영 안함`}`;
+	} else {
+		time.innerHTML =
+			`운영시간 업데이트 되지 않음`
+	}
 	time.style.cssText = timeStyle;
 	wrapper.appendChild(time);
 	
@@ -129,7 +152,13 @@ const Info = (data) => {
 		`${isOpenOnHoliday ? ` / 공휴일유료: ${data.HOLIDAY_PAY_YN} ` : ""}`;
 	pay.style.cssText = payStyle;
 	wrapper.appendChild(pay);
-	
+
+	const rates = document.createElement('div');
+	rates.innerHTML =
+		`기본요금: ${data.RATES}(${data.TIME_RATE}분 동안)<br/>` +
+		`추가요금: ${data.ADD_RATES}(${data.ADD_TIME_RATE}분 마다)`;
+	rates.style.cssText = ratesStyle;
+	wrapper.appendChild(rates);
 	return wrapper;
 };
 

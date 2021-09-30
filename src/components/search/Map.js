@@ -22,7 +22,7 @@ const MapContainer = styled.div`
 	}
 `;
 
-const Map = ({ loading, lat, lng, data }) => {
+const Map = ({ loading, lat, lng, data, isHidden }) => {
 	const map = useRef(null);
 	const { mapState } = useContext(ZoomLevelContext);
 
@@ -62,6 +62,12 @@ const Map = ({ loading, lat, lng, data }) => {
 			//서버에서 받은 data로 마커와 인포윈도우를 띄운다.
 			if (data) {
 				for (let i = 0; i < data.data.length; i = i + 1) {
+					if(isHidden === true) {
+						if(data.data[i].WEEKDAY_END_TIME === "0000" &&
+						   data.data[i].WEEKEND_END_TIME === "0000" &&
+						   data.data[i].HOLIDAY_END_TIME === "0000") 
+							continue;
+					}
 					//마커 생성 및 이벤트(Infowindow) 등록
 					const marker = displayMarker(data.data[i]);
 					onClickMarker(marker, data.data[i]);
@@ -87,7 +93,7 @@ const Map = ({ loading, lat, lng, data }) => {
 			infowindow.setContent(info);
 			infowindow.open(kakaoMap, marker);
 		};
-	}, [mapState, loading]);
+	}, [mapState, loading, isHidden]);
 
 	return <MapContainer ref={map} />;
 };

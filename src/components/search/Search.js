@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import styled from 'styled-components';
+import { Input } from 'reactstrap';
 import { Button, Spinner } from 'reactstrap';
 import qs from 'qs';
 import axios from 'axios';
@@ -28,6 +29,41 @@ const Main = styled.div`
 const Line = styled.hr`
 	background-color: black;
 	opacity: 0.25;
+`;
+
+const FormWrapper = styled.div`
+	display: table;
+	@media ${(props) => props.theme.mobile} {
+		width: 90%;
+		margin: 0% 5% 0% 5%;
+	}
+	@media ${(props) => props.theme.tablet} {
+		width: 80%;
+		margin: 0% 10% 0% 10%;
+	}
+	@media ${(props) => props.theme.desktop} {
+		width: 60%;
+		margin: 0% 20% 0% 20%;
+	}
+`;
+
+const Label = styled.label`
+	${(props) => props.theme.m}
+	display: table-cell;
+	text-align: right;
+	vertical-align: middle;
+`;
+
+const InputBox = styled(Input)`
+	@media ${(props) => props.theme.mobile} {
+		margin-top: 3.5px;
+	}
+	@media ${(props) => props.theme.tablet} {
+		margin-top: 4.5px;
+	}
+	@media ${(props) => props.theme.desktop} {
+		margin-top: 8.5px;
+	}
 `;
 
 const Buttons = styled(Button)`
@@ -65,19 +101,26 @@ const Progress = styled(Spinner)`
 
 const SearchResult = ({ location }) => {
 	const { mapState } = useContext(MapOptionContext);
-	const history = useHistory();
 
 	const [data, setData] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const [lat, setLat] = useState(null);
 	const [lng, setLng] = useState(null);
+	const [isNotUpdatedHidden, setIsNotUpdatedHidden] = useState(false);
+	
+	//메인화면으로 가는 버튼
+	const history = useHistory();
+	const goMain = (e) => {
+		e.preventDefault();
+		history.push('/seoul-parking-lot-finder');
+	};
 
 	//처음 렌더링 될 때, backend에서 data를 받아옴.
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				setLoading(true);
-				
+
 				//query parsing
 				const query = qs.parse(location.search, {
 					ignoreQueryPrefix: true,
@@ -90,7 +133,7 @@ const SearchResult = ({ location }) => {
 					lng = query.lng;
 				setLat(lat);
 				setLng(lng);
-				
+
 				//server에 요청
 				const requestUrl =
 					process.env.REACT_APP_API_DOMAIN +
@@ -98,7 +141,7 @@ const SearchResult = ({ location }) => {
 					`&lat=${lat}&lng=${lng}` +
 					`&radius=${mapState.radius}`;
 				const response = await axios.get(requestUrl);
-				
+
 				//response 받고 난 후,
 				setData(response);
 				setLoading(false);
@@ -109,24 +152,39 @@ const SearchResult = ({ location }) => {
 		fetchData();
 	}, [mapState.radius]);
 
-	//메인화면으로 가는 버튼
-	const goMain = (e) => {
-		e.preventDefault();
-		history.push('/seoul-parking-lot-finder');
-	};
-	
 	return (
 		<Wrapper>
 			<Line className="my-2" />
 			<Main>검색결과</Main>
 			<Line className="my-2" />
+			<FormWrapper>
+				<Label>
+					<InputBox
+						type="checkbox"
+						checked={isNotUpdatedHidden}
+						onChange={() => {setIsNotUpdatedHidden(!isNotUpdatedHidden)}}
+					/>
+					운영시간이 업데이트 되지 않은 주차장은 표시하지 않기
+				</Label>
+			</FormWrapper>
+
 			{loading ? (
 				<LoadingWrapper>
-					<Map loading={loading} lat={lat} lng={lng} />
+					<Map
+						loading={loading} 
+						lat={lat} 
+						lng={lng} 
+					/>
 					<Progress color="primary" />
 				</LoadingWrapper>
 			) : (
-				<Map loading={loading} lat={lat} lng={lng} data={data} />
+				<Map
+					loading={loading}
+					lat={lat}
+					lng={lng}
+					data={data}
+					isHidden={isNotUpdatedHidden}
+				/>
 			)}
 			<div />
 			<Buttons outline color="primary" onClick={goMain}>
