@@ -30,7 +30,7 @@ const Input = styled.input`
 	}
 `;
 
-const Map = ({ isActivated, toggleModal, toggleLocation }) => {
+const Map = ({ setCenterConditionTrue, openLocationPopover, toggleModal }) => {
 	const { mapState, mapActions } = useContext(MapOptionContext);
 	const map = useRef(null);
 
@@ -40,9 +40,7 @@ const Map = ({ isActivated, toggleModal, toggleLocation }) => {
 		setKeyword(e.target.input.value);
 	};
 
-	//useEffect:
-	//맵을 생성하고,
-	//결과값(keyword)이 변할때마다 그에 맞춰서 리렌더링을 해주어야함
+	//맵을 생성하고[1], 결과값(keyword)이 변할때마다[2] 리렌더링을 해주어야함
 	useEffect(() => {
 		const options = {
 			center: new window.kakao.maps.LatLng(mapState.latitude, mapState.longitude),
@@ -83,15 +81,15 @@ const Map = ({ isActivated, toggleModal, toggleLocation }) => {
 		}
 		const infowindow = new window.kakao.maps.InfoWindow({zIndex:1, removable:true});
 		function displayInfowindow(marker, data) {
-			const buttonOnClick = (data) => {
-				isActivated();
-				toggleLocation();;
+			const setCenter = (data) => {
+				setCenterConditionTrue();
+				openLocationPopover();
 				toggleModal();
 				mapActions.setLatitude(data.y);
 				mapActions.setLongitude(data.x);	
 				mapActions.setLocation(data.place_name);
 			}
-			const info = Info(data, buttonOnClick);
+			const info = Info(data, setCenter);
 			infowindow.setContent(info);
 			infowindow.open(kakaoMap, marker);
 		}

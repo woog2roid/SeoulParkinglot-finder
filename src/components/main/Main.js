@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { WrapperUtil } from '../../styles/FixedContents';
 import Slides from './slides/Slides';
-import InitiateSearch from './searching/Searching';
+import Search from './search/Search';
 
 const Wrapper = styled(WrapperUtil)`
 	@media ${(props) => props.theme.mobile} {
@@ -20,11 +20,11 @@ const SlidesWrapper = styled.div`
 	margin-bottom: 0;
 `;
 
-const ButtonWrapper = styled.div`
+const SearchWrapper = styled.div`
 	margin-top: 0;
 `;
 
-const TextWrapper = styled.div`
+const Text = styled.div`
 	@media ${(props) => props.theme.mobile} {
 		font-size: 10px;
 	}
@@ -42,12 +42,12 @@ const Main = () => {
 			<SlidesWrapper>
 				<Slides />
 			</SlidesWrapper>
-			<ButtonWrapper>
-				<InitiateSearch />
-			</ButtonWrapper>
-			<TextWrapper>
+			<SearchWrapper>
+				<Search />
+			</SearchWrapper>
+			<Text>
 				⁕위치 정보 권한은 사용자 주변의 주차장을 찾기 위해 필요합니다.
-			</TextWrapper>
+			</Text>
 		</Wrapper>
 	);
 };
