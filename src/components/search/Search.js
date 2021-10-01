@@ -32,37 +32,43 @@ const Line = styled.hr`
 `;
 
 const FormWrapper = styled.div`
-	display: table;
 	@media ${(props) => props.theme.mobile} {
 		width: 90%;
 		margin: 0% 5% 0% 5%;
+		height: 20px; 
 	}
 	@media ${(props) => props.theme.tablet} {
 		width: 80%;
 		margin: 0% 10% 0% 10%;
+		height: 22px;
 	}
 	@media ${(props) => props.theme.desktop} {
 		width: 60%;
 		margin: 0% 20% 0% 20%;
+		height: 30px;
 	}
 `;
 
 const Label = styled.label`
 	${(props) => props.theme.m}
-	display: table-cell;
-	text-align: right;
+	display: inline-block;
+	float: right;
 	vertical-align: middle;
 `;
 
+//13px로 input box가 고정되어있음
 const InputBox = styled(Input)`
 	@media ${(props) => props.theme.mobile} {
 		margin-top: 3.5px;
+		margin-bottom: 3.5px;
 	}
 	@media ${(props) => props.theme.tablet} {
 		margin-top: 4.5px;
+		margin-bottom: 4.5px;
 	}
 	@media ${(props) => props.theme.desktop} {
 		margin-top: 8.5px;
+		margin-bottom: 8.5px;
 	}
 `;
 

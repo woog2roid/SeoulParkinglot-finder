@@ -8,28 +8,28 @@ const Label = styled.label`
 	vertical-align: middle;
 	${(props) => props.theme.m}
 	@media ${(props) => props.theme.mobile} {
-		margin: 3px 0px 3px 0px;
-		line-height: 12px;
+		height: 15px;
 	}
 	@media ${(props) => props.theme.tablet} {
-		margin: 5px 0px 5px 0px;
-		line-height: 15px;
+		height: 21px; 
 	}
 	@media ${(props) => props.theme.desktop} {
-		margin: 7px 0px 7px 0px;
-		line-height: 18px;
+		height: 25px; 
 	}
 `;
 
 const InputBox = styled(Input)`
 	@media ${(props) => props.theme.mobile} {
-		line-height: 12px;
+		margin-top: 1px;
+		margin-bottom: 1px;
 	}
 	@media ${(props) => props.theme.tablet} {
-		line-height: 15px;
+		margin-top: 4px;
+		margin-bottom: 4px;
 	}
 	@media ${(props) => props.theme.desktop} {
-		line-height: 18px;
+		margin-top: 6px;
+		margin-bottom: 6px;
 	}
 `;
 
