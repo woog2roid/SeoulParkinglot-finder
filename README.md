@@ -5,7 +5,14 @@
 - [느낀점/배운점](#느낀점/배운점)
 
 ## 실행화면
-2021-09-22 기준 실행화면 (모바일)
+<details>
+<summary><b>모바일 기준 실행화면</b></summary>
+<div markdown="1">
+
+<img src="https://user-images.githubusercontent.com/54667577/135610973-7f9b53c7-4317-427e-a385-8acd55016343.gif" alt="실행화면" width="50%" height="50%" >
+
+</details>
+</div>
 
 ## 느낀점/배운점
 
