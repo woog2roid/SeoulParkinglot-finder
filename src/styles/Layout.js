@@ -7,8 +7,8 @@ export const Wrapper = styled.div`
 
 export const NavWrapper = styled.div`
 	position: absolute;
+	min-height: 60px;
 	width: 100%;
-	height: 60px;
 	z-index: 2;
 	//bug fix for iOS
 	-webkit-transform: translate3d(0,0,1px);
@@ -16,14 +16,19 @@ export const NavWrapper = styled.div`
 
 export const ContentsWrapper = styled.div`
 	position: relative;
-	min-height: 93vh;
+	height: 100vh;
 	padding-top: 60px;
-	margin-bottom: 3vh;
+	margin-bottom: 20px;
 	z-index: 1;
 `;
 
 export const FooterWrapper = styled.div`
-	position: relative;
+	position: fixed;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	min-height: 20px;
 	width: 100%;
+	z-index: 2;
 	background-color: white;
 `;

@@ -12,19 +12,20 @@ const Wrapper = styled(WrapperUtil)`
         height: 55%;
 	}
 	@media ${(props) => props.theme.desktop} {
-        height: 75%;
+        height: 80%;
 	}
 `;
 
 const SlidesWrapper = styled.div`
-	margin-bottom: 0;
+	margin-bottom: -2%;
 `;
 
 const SearchWrapper = styled.div`
-	margin-top: 0;
+	margin-top: -2%;
 `;
 
 const Text = styled.div`
+	margin-top: -1.5%;
 	@media ${(props) => props.theme.mobile} {
 		font-size: 10px;
 	}
@@ -44,10 +45,10 @@ const Main = () => {
 			</SlidesWrapper>
 			<SearchWrapper>
 				<Search />
+				<Text>
+					⁕위치 정보 권한은 사용자 주변의 주차장을 찾기 위해 필요합니다.
+				</Text>
 			</SearchWrapper>
-			<Text>
-				⁕위치 정보 권한은 사용자 주변의 주차장을 찾기 위해 필요합니다.
-			</Text>
 		</Wrapper>
 	);
 };
