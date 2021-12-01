@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { WrapperUtil } from '../../styles/FixedContents';
 
-const Wrapper = styled(WrapperUtil)`
-	height: 28%;
+const Wrapper = styled.div`
 	text-align: left;
+	
+	margin-top: calc((100vh - 60px - 28vh) / 2);
+	magrin-bottom: calc((100vh - 60px - 28vh) / 2);
+	
 	@media ${(props) => props.theme.mobile} {
 	    width: 85%;
 	}

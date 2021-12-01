@@ -10,15 +10,8 @@ import MapOptionContext from '../../contexts/MapOptionContext';
 
 const Wrapper = styled.div`
 	text-align: center;
-	@media ${(props) => props.theme.mobile} {
-		margin-top: 5%;
-	}
-	@media ${(props) => props.theme.tablet} {
-		margin-top: 10%;
-	}
-	@media ${(props) => props.theme.desktop} {
-		margin-top: 30px;
-	}
+	margin-top: calc((100vh - 60px - 85vh) / 2);
+	margin-bottom: calc((100vh - 60px - 85vh) / 2);
 `;
 
 const Main = styled.div`
@@ -56,11 +49,6 @@ const Label = styled.label`
 	float: right;
 	vertical-align: middle;
 `;
-
-const Number = styled.div`
-	${(props) => props.theme.m}
-	float: right;
-`
 
 //13px로 input box가 고정되어있음
 const InputBox = styled(Input)`
@@ -154,7 +142,6 @@ const SearchResult = ({ location }) => {
 					`&radius=${mapState.radius}`;
 				const response = await axios.get(requestUrl);
 
-				console.log(response);
 				//response 받고 난 후,
 				setData(response);
 				setLoading(false);

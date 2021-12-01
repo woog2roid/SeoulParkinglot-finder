@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { Button } from 'reactstrap';
-import { WrapperUtil } from '../../styles/FixedContents';
 
-const Wrapper = styled(WrapperUtil)`
-	height: 20%;
+const Wrapper = styled.div`
+	text-align: center;
+	margin-top: calc((100vh - 60px - 28vh) / 2);
 `;
 
 const Title = styled.div`

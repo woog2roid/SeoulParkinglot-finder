@@ -1,27 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
-import { WrapperUtil } from '../../styles/FixedContents';
 import Slides from './slides/Slides';
 import Search from './search/Search';
 
-const Wrapper = styled(WrapperUtil)`
+const Wrapper = styled.div`
+	text-align: center;
 	@media ${(props) => props.theme.mobile} {
-		height: 53%;
+		margin-top: calc((100vh - 60px - 53vh) / 2);
+		margin-bottom: calc((100vh - 60px - 53vh) / 2);
 	}
 	@media ${(props) => props.theme.tablet} {
-        height: 55%;
+		margin-top: calc((100vh - 60px - 55vh) / 2);
+		margin-bottom: calc((100vh - 60px - 55vh) / 2);
 	}
 	@media ${(props) => props.theme.desktop} {
-        height: 80%;
+        margin-top: calc((100vh - 60px - 80vh) / 2);
+		margin-bottom: calc((100vh - 60px - 80vh) / 2);
 	}
 `;
 
 const SlidesWrapper = styled.div`
-	margin-bottom: -2%;
+	margin-bottom: 0%;
 `;
 
 const SearchWrapper = styled.div`
-	margin-top: -2%;
+	margin-top: 0%;
 `;
 
 const Text = styled.div`
