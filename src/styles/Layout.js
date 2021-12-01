@@ -10,7 +10,6 @@ export const NavWrapper = styled.div`
 	min-height: 60px;
 	width: 100%;
 	z-index: 2;
-	//bug fix for iOS
 	-webkit-transform: translate3d(0,0,1px);
 `
 

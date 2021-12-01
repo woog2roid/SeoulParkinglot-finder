@@ -32,6 +32,7 @@ const Line = styled.hr`
 `;
 
 const FormWrapper = styled.div`
+	text-align: right;
 	@media ${(props) => props.theme.mobile} {
 		width: 90%;
 		margin: 0% 5% 0% 5%;
@@ -55,6 +56,11 @@ const Label = styled.label`
 	float: right;
 	vertical-align: middle;
 `;
+
+const Number = styled.div`
+	${(props) => props.theme.m}
+	float: right;
+`
 
 //13px로 input box가 고정되어있음
 const InputBox = styled(Input)`
@@ -148,6 +154,7 @@ const SearchResult = ({ location }) => {
 					`&radius=${mapState.radius}`;
 				const response = await axios.get(requestUrl);
 
+				console.log(response);
 				//response 받고 난 후,
 				setData(response);
 				setLoading(false);
@@ -170,7 +177,8 @@ const SearchResult = ({ location }) => {
 						checked={isNotUpdatedHidden}
 						onChange={() => {setIsNotUpdatedHidden(!isNotUpdatedHidden)}}
 					/>
-					운영시간이 업데이트 되지 않은 주차장은 표시하지 않기
+					운영시간이 업데이트 되지 않은 주차장은 표시하지 않기<br/>
+					{data === null ? null : "검색결과:" + data.data.length + "개"}
 				</Label>
 			</FormWrapper>
 
@@ -184,13 +192,15 @@ const SearchResult = ({ location }) => {
 					<Progress color="primary" />
 				</LoadingWrapper>
 			) : (
-				<Map
-					loading={loading}
-					lat={lat}
-					lng={lng}
-					data={data}
-					isHidden={isNotUpdatedHidden}
-				/>
+				<>
+					<Map
+						loading={loading}
+						lat={lat}
+						lng={lng}
+						data={data}
+						isHidden={isNotUpdatedHidden}
+					/>
+				</>
 			)}
 			<div />
 			<Buttons outline color="primary" onClick={goMain}>

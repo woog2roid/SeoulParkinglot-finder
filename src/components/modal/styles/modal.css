@@ -20,10 +20,12 @@
   vertical-align: middle;
   margin: 0;
   padding: 0;
+  -webkit-transform: translate3d(0,0,2px);
 }
 
 .modal {
   text-align: center;
+  -webkit-transform: translate3d(0,0,2px);
 }
 
 .modal:before {
