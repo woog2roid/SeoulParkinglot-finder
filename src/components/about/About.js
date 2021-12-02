@@ -8,13 +8,16 @@ const Wrapper = styled.div`
 	magrin-bottom: calc((100vh - 60px - 28vh) / 2);
 	
 	@media ${(props) => props.theme.mobile} {
-	    width: 85%;
+		width: 85%;
+		margin-left: 7.5%;
 	}
 	@media ${(props) => props.theme.tablet} {
 		width: 70%;
+		margin-left: 15%;
 	}
 	@media ${(props) => props.theme.desktop} {
     	width: 70%;
+		margin-left: 15%;
 	}
 `;
 
