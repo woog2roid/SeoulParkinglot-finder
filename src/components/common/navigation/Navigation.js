@@ -53,14 +53,14 @@ const Navigation = () => {
 	return (
 		<Wrapper>
 			<Navbar color="light" light expand="md">
-				<NavbarBrand tag={Link} to="/seoul-parking-lot-finder">
+				<NavbarBrand tag={Link} to="/">
 					파킹랏
 				</NavbarBrand>
 				<NavbarToggler onClick={toggleHamburger} />
 				<Collapse isOpen={isCollapseOpen} navbar>
 					<Nav className="mr-auto" navbar>
 						<NavItem>
-							<NavLink tag={Link} to="/seoul-parking-lot-finder/about/">
+							<NavLink tag={Link} to="/about/">
 								서비스 소개
 							</NavLink>
 						</NavItem>

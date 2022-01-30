@@ -113,7 +113,7 @@ const Search = () => {
 		url += `&holidayfree=${e.target.holidayfree.checked}`;
 		url += `&lat=${mapState.latitude}`;
 		url += `&lng=${mapState.longitude}`;
-		history.push('/seoul-parking-lot-finder/search?' + url);
+		history.push('/search?' + url);
 	};
 
 	return (

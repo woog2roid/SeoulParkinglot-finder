@@ -112,7 +112,7 @@ const SearchResult = ({ location }) => {
 	const history = useHistory();
 	const goMain = (e) => {
 		e.preventDefault();
-		history.push('/seoul-parking-lot-finder');
+		history.push('/');
 	};
 
 	//처음 렌더링 될 때, backend에서 data를 받아옴.
